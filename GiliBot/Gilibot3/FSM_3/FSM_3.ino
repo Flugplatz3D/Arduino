@@ -38,7 +38,7 @@ unsigned int An0;
 void setup() {
   Serial.begin(9600);
   Motores.Stop();
-  Serial.println("\n\nSetup Arduino");
+  Serial.println("\nSetup Arduino");
   //  Wire.begin();
   //  Wire.setClock(400000L);
   //  oled.begin(&Adafruit128x64, 0x3C);
