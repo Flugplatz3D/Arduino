@@ -22,7 +22,7 @@ unsigned char myEvent;
 unsigned int An0;
 
 void setup() {
-      Serial.begin(9600);
+  //Serial.begin(9600);
   Motores.Stop();
   Wire.begin();
   Wire.setClock(400000L);
@@ -36,13 +36,13 @@ void setup() {
   oled.set1X();
   oled.setRow(3);
   oled.setCol(36);
-  oled.print("Vers.LN0j4");
+  oled.print("Vers.LN0F1");
   delay(3000);
   oled.clear();
   //  Serial.begin(9600);
   //  Serial.println("Inicio");
   //  delay(1500);
-  //  FSM.begin(FSM_NextState, nStateMachine, FSM_State, nStateFcn, STATE1);
+  FSM.begin(FSM_NextState, nStateMachine, FSM_State, nStateFcn, INICIO);
 }
 
 void loop()
@@ -70,7 +70,12 @@ void ReadEvents(void)
 }
 
 //Funciones correspondientes a los ESTADOS
-void FuncST1(void)
+void FuncInicio(void)
+{
+  //  An0 = LeeSensorIR();
+}
+
+void FuncChocar(void)
 {
   //  An0 = LeeSensorIR();
 }
