@@ -13,9 +13,9 @@ extern void FuncST4(void);
 
 //Declaracion del nombre de ESTADOS y de EVENTOS
 #define CHOCAR  	0x01
-#define STATE2  	0x02
-#define STATE3  	0x03
-#define STATE4  	0x04
+#define PARAR  	    0x02
+#define DERECHA  	0x03
+#define IZQUIERDA  	0x04
 
 #define EV_Reset	0x41
 #define EV_Front	0x42
@@ -26,19 +26,19 @@ extern void FuncST4(void);
 const FSMClass::FSM_State_t FSM_State[] PROGMEM = {
   // STATE,STATE_FUNC
   {CHOCAR, FuncST1},
-  {STATE2, FuncST2},
-  {STATE3, FuncST3},
-  {STATE4, FuncST4},
+  {PARAR, FuncST2},
+  {DERECHA, FuncST3},
+  {IZQUIERDA, FuncST4},
 };
 
 const FSMClass::FSM_NextState_t FSM_NextState[] PROGMEM = {
   // STATE,EVENT,NEXT_STATE
-  {CHOCAR, EV_Stop, STATE2},
-  {CHOCAR, EV_Rear, STATE3},
-  {CHOCAR, EV_Front, STATE4},
-  {STATE2, EV_Reset, CHOCAR},
-  {STATE3, EV_Reset, CHOCAR},
-  {STATE4, EV_Reset, CHOCAR},
+  {CHOCAR, EV_Stop, PARAR},
+  {CHOCAR, EV_Rear, DERECHA},
+  {CHOCAR, EV_Front, IZQUIERDA},
+  {PARAR, EV_Reset, CHOCAR},
+  {DERECHA, EV_Reset, CHOCAR},
+  {IZQUIERDA, EV_Reset, CHOCAR},
 };
 
 //Macros para el cálculo de los tamaños de las estructuras

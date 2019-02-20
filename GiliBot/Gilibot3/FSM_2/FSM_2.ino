@@ -22,6 +22,23 @@ unsigned char myEvent;
 unsigned int An0;
 
 void setup() {
+      Serial.begin(9600);
+  Motores.Stop();
+  Wire.begin();
+  Wire.setClock(400000L);
+  oled.begin(&Adafruit128x64, 0x3C);
+  oled.setFont(lcd5x7);
+  oled.clear();
+  oled.setRow(0);
+  oled.setCol(24);
+  oled.set2X();
+  oled.print("GiliBot");
+  oled.set1X();
+  oled.setRow(3);
+  oled.setCol(36);
+  oled.print("Vers.LN0j4");
+  delay(3000);
+  oled.clear();
   //  Serial.begin(9600);
   //  Serial.println("Inicio");
   //  delay(1500);
