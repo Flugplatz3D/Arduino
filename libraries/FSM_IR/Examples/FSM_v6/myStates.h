@@ -18,24 +18,24 @@ extern void func4(void);
 #define STATE4          0x04
 
 #define EV_S     	0x41
-#define EV_E    	0x43	
-#define EV_ERROR    	0x44	
+#define EV_E    	0x43
+#define EV_ERROR    	0x44
 
 // Estructuras descriptivas de mi diagrama de flujo
-const FSMClass::FSM_State_t FSM_State[] PROGMEM= {
-// STATE,STATE_FUNC
-{STATE1,0},
-{STATE2,func2},
-{STATE3,0},
-{STATE4,func4},
+const FSMClass::FSM_State_t FSM_State[] PROGMEM = {
+  // STATE,STATE_FUNC
+  {STATE1, 0},
+  {STATE2, func2},
+  {STATE3, 0},
+  {STATE4, func4},
 };
 
-const FSMClass::FSM_NextState_t FSM_NextState[] PROGMEM= {
-// STATE,EVENT,NEXT_STATE
-{STATE1,EV_S,STATE2},
-{STATE2,0,STATE3},
-{STATE3,EV_E,STATE4},
-{STATE4,0,STATE1},
+const FSMClass::FSM_NextState_t FSM_NextState[] PROGMEM = {
+  // STATE,EVENT,NEXT_STATE
+  {STATE1, EV_S, STATE2},
+  {STATE2, 0, STATE3},
+  {STATE3, EV_E, STATE4},
+  {STATE4, 0, STATE1},
 };
 
 
@@ -45,4 +45,3 @@ const FSMClass::FSM_NextState_t FSM_NextState[] PROGMEM= {
 #define nStateMachine		sizeof(FSM_NextState)/sizeof(FSMClass::FSM_NextState_t)
 
 #endif
-
