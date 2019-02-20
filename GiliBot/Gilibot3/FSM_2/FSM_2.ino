@@ -13,35 +13,38 @@ Motors Motores;
 #define FiltroIni 999
 #define VelocidadChocar 150
 #define VelocidadGirar 75
+#define ParedLeft 850
+#define ParedFront 800
+#define ParedRight 850
 
 MedianFilter medianFilterLeft(Ventana, FiltroIni);
 MedianFilter medianFilterFront(Ventana, FiltroIni);
 MedianFilter medianFilterRight(Ventana, FiltroIni);
 
+int sensorPinRight = A0;
+int sensorPinFront = A1;
+int sensorPinLeft = A2;
+
+int sensorLeft, sensorFront, sensorRight;
+int sensorLeftMF, sensorFrontMF, sensorRightMF;
+int diferencial;
+
+unsigned long time_start;
+unsigned long time_actual;
+
 unsigned char myEvent;
 unsigned int An0;
 
 void setup() {
-  //Serial.begin(9600);
+  Serial.begin(9600);
   Motores.Stop();
-  Wire.begin();
-  Wire.setClock(400000L);
-  oled.begin(&Adafruit128x64, 0x3C);
-  oled.setFont(lcd5x7);
-  oled.clear();
-  oled.setRow(0);
-  oled.setCol(24);
-  oled.set2X();
-  oled.print("GiliBot");
-  oled.set1X();
-  oled.setRow(3);
-  oled.setCol(36);
-  oled.print("Vers.LN0F1");
-  delay(3000);
-  oled.clear();
-  //  Serial.begin(9600);
-  //  Serial.println("Inicio");
-  //  delay(1500);
+  Serial.println("");
+  //  Serial.flush();
+  //  Wire.begin();
+  //  Wire.setClock(400000L);
+  //  oled.begin(&Adafruit128x64, 0x3C);
+  //  oled.setFont(lcd5x7);
+  //  oled.clear();
   FSM.begin(FSM_NextState, nStateMachine, FSM_State, nStateFcn, INICIO);
 }
 
@@ -51,68 +54,71 @@ void loop()
   FSM.Update();
 }
 
-void ReadEvents(void)
+void ReadEvents()
 {
-  //  myEvent = 0;
-  //  if (An0 > 400)
-  //  {
-  //    myEvent = EV_Rear;
-  //  }
-  //  else if (An0 > 300)
-  //  {
-  //    myEvent = EV_Stop;
-  //  }
-  //  else
-  //  {
-  //    myEvent = EV_Front;
-  //  }
-  //  FSM.AddEvent(myEvent);
+  myEvent = 0;
+  if (time_actual < 30000)
+    //if (sensorFrontMF < ParedFront)
+  {
+    myEvent = EV_Front;
+  }
+  else
+  {
+    myEvent = EV_Stop;
+  }
+  FSM.AddEvent(myEvent);
 }
 
 //Funciones correspondientes a los ESTADOS
 void FuncInicio(void)
 {
-  //  An0 = LeeSensorIR();
+  Serial.println("Estado INICIO");
+  time_start = millis();
+  delay(3000);
+  //  oled.setRow(0);
+  //  oled.setCol(24);
+  //  oled.set2X();
+  //  oled.print("GiliBot");
+  //  oled.set1X();
+  //  oled.setRow(3);
+  //  oled.setCol(36);
+  //  oled.print("Vers.LN0F1");
+
+  //  oled.clear();
+
+  FSM.AddEvent(EV_Inicio);
 }
 
 void FuncChocar(void)
 {
-  //  An0 = LeeSensorIR();
+  Serial.print("Estado CHOCAR  -> ");
+  time_actual = millis() - time_start;
+  Serial.println(time_actual);
+  delay(250);
+  //  sensorFrontMF = ReadSensor(sensorFront, medianFilterFront, sensorPinFront);
+  //  Motores.Move(VelocidadGirar, VelocidadGirar);
 }
 
-void FuncST2(void)
+void FuncParar(void)
 {
-  //  Serial.print(An0, DEC);
-  //  Serial.println(" Parar");
-  //  delay(100);
-  //  FSM.AddEvent(EV_Reset);
+  Serial.println("Estado PARAR");
+  FSM.AddEvent(EV_Stop);
+  //  Motores.Stop();
 }
 
-void FuncST3(void)
+void FuncDerecha(void)
 {
-  //  Serial.print(An0, DEC);
-  //  Serial.println(" Retroceder");
-  //  delay(100);
-  //  FSM.AddEvent(EV_Reset);
+
 }
 
-void FuncST4(void)
+void FuncIzquierda(void)
 {
-  //  Serial.print(An0, DEC);
-  //  Serial.println(" Avanzar");
-  //  delay(100);
-  //  FSM.AddEvent(EV_Reset);
+
 }
 
-//int LeeSensorIR()
-//{
-//  byte i = 0;
-//  unsigned long Suma = 0;
-//
-//  for (i = 0; i < 100; i++)
-//  {
-//    Suma = Suma + analogRead(0);
-//  }
-//  Suma = Suma / 100;
-//  return Suma;
-//}
+int ReadSensor(int &sensor, MedianFilter &Filtro, int pin)
+{
+  sensor = analogRead(pin);
+  Filtro.in(sensor);
+  return Filtro.out();
+}

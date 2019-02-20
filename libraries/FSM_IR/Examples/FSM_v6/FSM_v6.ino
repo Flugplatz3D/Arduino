@@ -11,8 +11,6 @@ unsigned char myEvent;
 char myByteRec;
 unsigned long t0;
 
-
-
 void setup()
 {
   Serial.begin(9600);
@@ -33,7 +31,6 @@ void loop()
 
   ReadEvents();
   FSM.Update();
-
 }
 
 
@@ -57,10 +54,6 @@ void ReadEvents(void)
     //Solo genero el evento si se ha recibido algo por serie
     FSM.AddEvent(myEvent);
   }
-
-
-
-
 }
 
 //Funciones correspondientes a los ESTADOS
@@ -69,6 +62,7 @@ void func2(void)
   t0 = millis();
   FSM.AddEvent(0);
 }
+
 void func4(void)
 {
   Serial.print("Tiempo transcurrido=");

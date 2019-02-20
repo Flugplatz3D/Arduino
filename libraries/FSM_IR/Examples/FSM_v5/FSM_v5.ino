@@ -31,13 +31,11 @@ void loop()
   //  Primer paso:  LEO EVENTOS EXTERNOS
   //  Segundo paso: ACTUALIZO ESTADOS
   //  Tercer paso:  EJECUTO FUNCION CORRESPONDIENTE A DICHO ESTADO
-  //  Cuaro paso:   ACTUALIZO ESTADOS DEPENDIENDO DE LOS EVENTOS INTERNOS GENERADOS
+  //  Cuarto paso:  ACTUALIZO ESTADOS DEPENDIENDO DE LOS EVENTOS INTERNOS GENERADOS
 
   ReadEvents();
   FSM.Update();
-
 }
-
 
 void ReadEvents(void)
 {
@@ -60,10 +58,7 @@ void ReadEvents(void)
       myEvent = EV_ERROR; //Evento recibido caracter no valido
     }
   }
-
   FSM.AddEvent(myEvent);
-
-
 }
 
 //Funciones correspondientes a los ESTADOS
@@ -86,5 +81,4 @@ void func3(void)
     Serial.println(mynumber);
     mynumber = 0;
   }
-
 }
