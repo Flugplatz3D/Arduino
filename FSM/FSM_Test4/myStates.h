@@ -12,15 +12,15 @@ extern void FuncST3(void);
 extern void FuncST4(void);
 
 //Declaracion del nombre de ESTADOS y de EVENTOS
-#define STATE1  	0x01
-#define STATE2  	0x02
-#define STATE3  	0x03
-#define STATE4  	0x04
+#define STATE1      0x01
+#define STATE2      0x02
+#define STATE3      0x03
+#define STATE4      0x04
 
-#define EV_Reset	0x41
-#define EV_Front	0x42
-#define EV_Stop		0x43
-#define EV_Rear		0x44
+#define EV_Reset    0x41
+#define EV_Front    0x42
+#define EV_Stop     0x43
+#define EV_Rear     0x44
 
 
 const FSMClass::FSM_State_t FSM_State[] PROGMEM = {
@@ -43,8 +43,8 @@ const FSMClass::FSM_NextState_t FSM_NextState[] PROGMEM = {
 
 //Macros para el cálculo de los tamaños de las estructuras
 //NO MODIFICAR
-#define nStateFcn		    sizeof(FSM_State)/sizeof(FSMClass::FSM_State_t)
-#define nStateMachine		sizeof(FSM_NextState)/sizeof(FSMClass::FSM_NextState_t)
+#define nStateFcn           sizeof(FSM_State)/sizeof(FSMClass::FSM_State_t)
+#define nStateMachine       sizeof(FSM_NextState)/sizeof(FSMClass::FSM_NextState_t)
 
 #endif
 
