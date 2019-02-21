@@ -9,9 +9,9 @@
 SSD1306AsciiWire oled;
 Motors Motores;
 
-#define Ventana 100
+#define Ventana 50
 #define FiltroIni 999
-#define VelocidadChocar 150
+#define VelocidadChocar 100
 #define VelocidadGirar 75
 #define ParedLeft 850
 #define ParedFront 800
@@ -29,21 +29,17 @@ int sensorLeft, sensorFront, sensorRight;
 int sensorLeftMF, sensorFrontMF, sensorRightMF;
 int diferencial;
 
-unsigned long time_start;
-unsigned long time_actual;
-
 unsigned char myEvent;
-unsigned int An0;
 
 void setup() {
   Serial.begin(9600);
   Motores.Stop();
   Serial.println("\nSetup Arduino");
-  //  Wire.begin();
-  //  Wire.setClock(400000L);
-  //  oled.begin(&Adafruit128x64, 0x3C);
-  //  oled.setFont(lcd5x7);
-  //  oled.clear();
+  Wire.begin();
+  Wire.setClock(400000L);
+  oled.begin(&Adafruit128x64, 0x3C);
+  oled.setFont(lcd5x7);
+  oled.clear();
   FSM.begin(FSM_NextState, nStateMachine, FSM_State, nStateFcn, INICIO);
 }
 
@@ -55,9 +51,9 @@ void loop()
 
 void ReadEvents()
 {
+  sensorFrontMF = ReadSensor(sensorFront, medianFilterFront, sensorPinFront);
   myEvent = 0;
-  if (time_actual < 30000)
-    //if (sensorFrontMF < ParedFront)
+  if (sensorFrontMF >  ParedFront)
   {
     myEvent = EV_Front;
   }
@@ -69,48 +65,46 @@ void ReadEvents()
 }
 
 //Funciones correspondientes a los ESTADOS
-void FuncInicio(void)
+void FuncInicio()
 {
-  Serial.println("Estado INICIO");
+  oled.setRow(0);
+  oled.setCol(24);
+  oled.set2X();
+  oled.print("GiliBot");
+  oled.set1X();
+  oled.setRow(3);
+  oled.setCol(36);
+  oled.print("Vers.LN0F1");
   delay(3000);
-  time_start = millis();
-  //  oled.setRow(0);
-  //  oled.setCol(24);
-  //  oled.set2X();
-  //  oled.print("GiliBot");
-  //  oled.set1X();
-  //  oled.setRow(3);
-  //  oled.setCol(36);
-  //  oled.print("Vers.LN0F1");
-
-  //  oled.clear();
-
+  oled.clear();
   FSM.AddEvent(EV_Inicio);
 }
 
-void FuncChocar(void)
+void FuncChocar()
 {
-  Serial.print("Estado CHOCAR -> ");
-  time_actual = millis() - time_start;
-  Serial.println(time_actual);
-  //  delay(250);
-  //  sensorFrontMF = ReadSensor(sensorFront, medianFilterFront, sensorPinFront);
-  //  Motores.Move(VelocidadGirar, VelocidadGirar);
+  oled.setRow(0);
+  oled.setCol(0);
+  oled.print(sensorFrontMF);
+  oled.print("  ");
+  Motores.Move(VelocidadChocar, VelocidadChocar);
 }
 
-void FuncParar(void)
+void FuncParar()
 {
-  Serial.println("Estado PARAR");
+  oled.setRow(0);
+  oled.setCol(0);
+  oled.print(sensorFrontMF);
+  oled.print("  ");
+  Motores.Stop();
   FSM.AddEvent(EV_Stop);
-  //  Motores.Stop();
 }
 
-void FuncDerecha(void)
+void FuncDerecha()
 {
 
 }
 
-void FuncIzquierda(void)
+void FuncIzquierda()
 {
 
 }
