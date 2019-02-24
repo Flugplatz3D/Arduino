@@ -9,7 +9,6 @@ unsigned long time_parcial = 0;
 unsigned char myEvent;
 int tecla = 0;
 
-
 void setup() {
   Serial.begin(9600);
   Serial.println("\nSetup");

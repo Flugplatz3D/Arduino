@@ -96,7 +96,7 @@ void FuncParar()
   oled.print(sensorFrontMF);
   oled.print("  ");
   Motores.Stop();
-  FSM.AddEvent(EV_Stop);
+//  FSM.AddEvent(EV_Stop);
 }
 
 void FuncDerecha()
