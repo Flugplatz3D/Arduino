@@ -37,12 +37,12 @@ class FSMClass
 		void begin(const FSM_NextState_t *FSM_NextState,unsigned char SizeNextState,const FSM_State_t *FSM_State,unsigned char SizeState,unsigned char State);
 		void Update(void);
 		void AddEvent(unsigned char Event);
+		unsigned char State(void);
 
 	private:
 		//Functions:
 		unsigned char StateMachine(unsigned char input);
 		unsigned char StateFcn();
-		unsigned char State(void);
 
 		//Variables:
 		unsigned char mySizeNextState;
