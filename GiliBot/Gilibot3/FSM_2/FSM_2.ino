@@ -8,12 +8,10 @@ unsigned long time_parcial = 0;
 
 unsigned char myEvent;
 int tecla = 0;
-byte pp = 65;
 
 void setup() {
   Serial.begin(9600);
   Serial.println("\nSetup");
-  Serial.println(FSM.State());
   EsperaTecla();
   FSM.begin(FSM_NextState, nStateMachine, FSM_State, nStateFcn, INICIO);
 }
@@ -26,42 +24,29 @@ void loop()
 
 void ReadEvents()
 {
-  //Serial.println("ReadEvents");
-  //Serial.println(FSM.State());
-  //EsperaTecla();
-
-  switch (FSM.State())
+//  Serial.println("ReadEvents");
+//  Serial.println(FSM.State());
+//  EsperaTecla();
+switch (FSM.State())
+{
+  
+}
+  time_parar = millis() - time_parcial;
+  myEvent = 0;
+  if (time_actual > 5000)
   {
-    case INICIO:
-      {
-        myEvent = EV_Front;
-        FSM.AddEvent(myEvent);
-        break;
-      }
-    case CHOCAR:
-      {
-        Serial.println("ReadEvents");
-        Serial.println(FSM.State());
-        time_parar = millis() - time_parcial;
-        myEvent = 0;
-        if (time_actual > 5000)
-        {
-          myEvent = EV_Stop;
-        }
-        else
-        {
-          myEvent = EV_Front;
-        }
-        FSM.AddEvent(myEvent);
-        break;
-      }
+    myEvent = EV_Stop;
   }
+  else
+  {
+    myEvent = EV_Front;
+  }
+  FSM.AddEvent(myEvent);
 }
 
 void FuncInicio()
 {
   Serial.println("INICIO");
-  Serial.println(FSM.State());
   EsperaTecla();
   time_start = millis();
   FSM.AddEvent(EV_Inicio);
@@ -72,7 +57,6 @@ void FuncChocar()
   Serial.print("CHOCAR -> ");
   time_actual = millis() - time_start;
   Serial.println(time_actual);
-  //FSM.State()
   //EsperaTecla();
 }
 
@@ -89,6 +73,7 @@ void FuncDerecha()
   Serial.println(time_parar);
   if (time_parar > 5000)
   {
+    EsperaTecla();
     FSM.AddEvent(EV_Front);
   }
   //delay(300);
