@@ -25,6 +25,8 @@ extern void FuncIzquierda(void);
 #define EV_Reset    0x43
 #define EV_Rear     0x44
 #define EV_Inicio   0x45
+#define EV_Left     0x46
+#define EV_Right    0x47
 
 const FSMClass::FSM_State_t FSM_State[] PROGMEM = {
   // STATE,STATE_FUNC
@@ -41,11 +43,9 @@ const FSMClass::FSM_NextState_t FSM_NextState[] PROGMEM = {
   {INICIO, EV_Inicio, CHOCAR},
   {CHOCAR, EV_Front, CHOCAR},
   {CHOCAR, EV_Stop, PARAR},
-  {PARAR, EV_Stop, DERECHA},
-  {PARAR, EV_Front, IZQUIERDA},
-  {DERECHA, EV_Front, IZQUIERDA},
-  {DERECHA, EV_Front, PARAR},
-  {DERECHA, EV_Stop, DERECHA}
+  {PARAR, EV_Stop, PARAR},
+  {PARAR, EV_Left, IZQUIERDA},
+  {IZQUIERDA, EV_Left, IZQUIERDA}
 };
 
 //Macros para el cálculo de los tamaños de las estructuras
