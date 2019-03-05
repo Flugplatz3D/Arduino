@@ -6,14 +6,13 @@ unsigned long time_actual;
 unsigned long time_parar;
 unsigned long time_parcial = 0;
 
-unsigned char myEvent;
+unsigned char myEvent = EV_Inicio;
 int tecla = 0;
 
 void setup() {
   Serial.begin(9600);
-  //  Serial.println("\nSetup");
-  //  EsperaTecla();
   FSM.begin(FSM_NextState, nStateMachine, FSM_State, nStateFcn, INICIO);
+  time_start = millis();
 }
 
 void loop()
@@ -34,68 +33,44 @@ void ReadEvents()
   {
     case INICIO:
       {
-        myEvent = EV_Front;
-        FSM.AddEvent(myEvent);
+          Serial.println("ReadEvents INICIO");
+        FSM.AddEvent(EV_Inicio);
         break;
       }
-    case PARAR:
-      {
-        time_parar = millis() - time_parcial;
-        //        Serial.print("PARAR -> ");
-        //        Serial.println(time_parar);
-        if (time_parar > 5000)
-        {
-          time_parcial = millis();
-          EsperaTecla();
-          FSM.AddEvent(EV_Left);
-        }
+    case IZQUIERDA:
+    {
+        Serial.println("ReadEvents IZQUIERDA");
+        FSM.AddEvent(EV_Front);
         break;
       }
     case CHOCAR:
       {
-        myEvent = 0;
-        if (time_actual > 5000)
-        {
-          myEvent = EV_Stop;
-        }
-        else
-        {
-          myEvent = EV_Front;
-        }
-        FSM.AddEvent(myEvent);
-        break;
-      }
-    case IZQUIERDA:
-      {
-        Serial.print("Izquierda -> ");
-        Serial.println(FSM.State());
-        EsperaTecla();
-        time_parar = millis() - time_parcial;
+          Serial.print("ReadEvents CHOCAR ->");
+          Serial.println(millis());
+        FSM.AddEvent(EV_Right);
         break;
       }
     default:
       {
-        Serial.println("ReadEvents");
-        Serial.println(FSM.State());
-        EsperaTecla();
       }
   }
+//  Serial.println("ReadEvents");
+//  Serial.println(FSM.State());
 }
 
 void FuncInicio()
 {
   Serial.println("INICIO");
   EsperaTecla();
-  time_start = millis();
-  FSM.AddEvent(EV_Inicio);
+  FSM.AddEvent(EV_Front);
 }
 
 void FuncChocar()
 {
-  Serial.print("CHOCAR -> ");
-  time_actual = millis() - time_start;
-  Serial.println(time_actual);
-  //EsperaTecla();
+//  Serial.print("CHOCAR -> ");
+//  Serial.println(millis());
+//  EsperaTecla();
+  //FSM.AddEvent(EV_Right);
 }
 
 void FuncParar()
@@ -107,18 +82,20 @@ void FuncParar()
 
 void FuncDerecha()
 {
-  //  Serial.print("Derecha -> ");
-  //  Serial.println(time_parar);
-  //  if (time_parar > 5000)
-  //  {
-  //    EsperaTecla();
-  //    FSM.AddEvent(EV_Front);
-  //  }
-  //  //delay(300);
+  Serial.println("DERECHA");
+  EsperaTecla();
+  FSM.AddEvent(EV_Left);
 }
 
 void FuncIzquierda()
 {
-  Serial.print("Izquierda -> ");
-  Serial.println(time_parar);
+  Serial.println("IZQUIERDA");
+  EsperaTecla();
+  //FSM.AddEvent(EV_Front);
+}
+
+void FuncEsperar()
+{
+  Serial.println("ESPERAR");
+  EsperaTecla();
 }
