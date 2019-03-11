@@ -8,6 +8,7 @@ SSD1306AsciiWire oled;
 Motors Motores;
 
 #define Ventana 100
+#define ValorInicio 1000
 #define VelocidadChocar 150
 #define VelocidadGirar 75
 
@@ -27,9 +28,9 @@ unsigned int Evento;
 #define EV_I_D      3
 #define EV_Fuera    0
 
-MedianFilter medianFilterLeft(Ventana, 0);
-MedianFilter medianFilterFront(Ventana, 0);
-MedianFilter medianFilterRight(Ventana, 0);
+MedianFilter medianFilterLeft(Ventana, ValorInicio);
+MedianFilter medianFilterFront(Ventana, ValorInicio);
+MedianFilter medianFilterRight(Ventana, ValorInicio);
 
 int sensorPinRight = A0;
 int sensorPinFront = A1;
