@@ -7,7 +7,7 @@
 
 Motors Motores;
 
-#define Ventana 40
+#define Ventana 50
 #define ValorInicio 1000
 #define VelocidadChocar 150
 #define VelocidadGirar 75
