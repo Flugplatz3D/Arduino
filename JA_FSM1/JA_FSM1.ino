@@ -1,5 +1,7 @@
 #include <FiniteStateMachine.h>
 
+State noop = State(noopUpdate);  //no operation
+
 void setup() {
   // put your setup code here, to run once:
 
