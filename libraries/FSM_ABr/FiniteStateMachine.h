@@ -30,7 +30,13 @@
 #ifndef FINITESTATEMACHINE_H
 #define FINITESTATEMACHINE_H
 
-#include <WProgram.h>
+//#include <WProgram.h>
+
+#if defined(ARDUINO) && ARDUINO >= 100
+	#include "arduino.h"
+#else
+	#include "WProgram.h"
+#endif
 
 #define NO_ENTER (0)
 #define NO_UPDATE (0)
