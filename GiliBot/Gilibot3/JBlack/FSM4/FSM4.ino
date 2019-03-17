@@ -56,6 +56,6 @@ void setup() {
 
 void loop() {
   Serial.println("-- loop --");
-  delay(1000);
+  delay(3000);
   fsm.trigger(FLIP_LIGHT_SWITCH);
 }
