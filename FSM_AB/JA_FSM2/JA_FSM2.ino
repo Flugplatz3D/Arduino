@@ -57,15 +57,11 @@ void setup() {
   Serial.println("\nFSM Alexander Brevig\n");
   delay(2000);
   oled.clear();
+  stateMachine.transitionTo(chocar);
 }
 
 void loop() {
   //do not remove the stateMachine.update() call, it is what makes this program 'tick'
-  if (millis() > 0 && i == 0)
-  {
-    i = 1;
-    stateMachine.transitionTo(chocar);
-  }
   stateMachine.update();
 }
 
