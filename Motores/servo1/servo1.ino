@@ -1,49 +1,24 @@
 #include <Servo.h>
 
-const int SPIND = 5;
-const int SPINI = 6;
+const int SPIND = 2;
 
-const int OFFSETD = 0;
-const int OFFSETI = 0;
-
-const int STOPD = 90 + OFFSETD;
-const int STOPI = 90 + OFFSETI;
-
-const int AVZD = 30 + OFFSETD;
-const int AVZI = 150 + OFFSETI;
-
-const int RETD = 150 + OFFSETD;
-const int RETI = 30 + OFFSETI;
-
-Servo servoD;
-Servo servoI;
+Servo servo1;
 
 void setup() {
   Serial.begin(9600);
-  servoD.attach(SPIND);
-  servoI.attach(SPINI);
+  servo1.attach(SPIND);
+  pinMode(13, OUTPUT);
 }
 
 void loop() {
-  setServoD(STOPD);
-  setServoI(STOPI);
+  servo1.write(1405);
   delay(3000);
-  setServoD(AVZD);
-  setServoI(AVZI);
+  servo1.write(2000);
   delay(3000);
-  setServoD(RETD);
-  setServoI(RETI);
+  servo1.write(1405  );
   delay(3000);
-  Serial.println(millis(), DEC);
+  servo1.write(1000);
+  digitalWrite(13, HIGH);
+  delay(3000);
+  digitalWrite(13, LOW);
 }
-
-void setServoD(int pos)
-{
-  servoD.write(pos + OFFSETD);
-}
-
-void setServoI(int pos)
-{
-  servoI.write(pos + OFFSETI);
-}
-
