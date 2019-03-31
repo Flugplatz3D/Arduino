@@ -12,7 +12,7 @@ void loop() {
   sensorValue = analogRead(sensorPin);
   // map it to the range of the analog out:
   //outputValue = map(sensorValue, 0, 1023, 0, 255);
-  if (sensorValue < 950)
+  if (sensorValue < 975)
   {
     digitalWrite(ledPin, HIGH );
   }
