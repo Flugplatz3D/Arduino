@@ -1,6 +1,12 @@
-int sensorPin = A0;    // select the input pin for the potentiometer
-int ledPin = 2;
-int sensorValue = 0;  // variable to store the value coming from the sensor
+#include "MedianFilter.h"
+
+MedianFilter medianFilterAn0(50, 4000);
+
+int sensorPin = PA0;
+int ledPin = PB1;
+int sensorValue = 0;
+int sensorValueF = 0;
+
 
 void setup() {
   pinMode(ledPin, OUTPUT);
@@ -8,11 +14,10 @@ void setup() {
 }
 
 void loop() {
-  //  Serial.println(sensorPin);
   sensorValue = analogRead(sensorPin);
-  // map it to the range of the analog out:
-  //outputValue = map(sensorValue, 0, 1023, 0, 255);
-  if (sensorValue < 950)
+  medianFilterAn0.in(sensorValue);
+  sensorValueF = medianFilterAn0.out();
+  if (sensorValueF < 3950)
   {
     digitalWrite(ledPin, HIGH );
   }
@@ -20,7 +25,8 @@ void loop() {
   {
     digitalWrite(ledPin, LOW);
   }
-  Serial.print("sensor = ");
-  Serial.println(sensorValue);
-  delay(100);
+  Serial.print(sensorValue);
+  Serial.print(",");
+  Serial.println(sensorValueF);
+  delay(10);
 }
