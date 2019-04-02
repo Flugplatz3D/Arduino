@@ -10,7 +10,7 @@ unsigned long time2 = 0;
 String inString = "";
 
 void setup() {
-  Serial.begin(57600);
+  Serial.begin(9600);
   pinMode(PB1, OUTPUT);
 }
 
@@ -39,6 +39,6 @@ void loop() {
   //digitalWrite(13, HIGH);   // set the LED on
   //delay(10);              // wait for a second
   //digitalWrite(13, LOW);    // set the LED off
-  delay(500);
+  delay(250);
   digitalWrite(PB1, !digitalRead(PB1));
 }
