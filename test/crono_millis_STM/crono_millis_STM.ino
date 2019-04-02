@@ -11,7 +11,7 @@ String inString = "";
 
 void setup() {
   Serial.begin(57600);
-  pinMode(PC13, OUTPUT);
+  pinMode(PB1, OUTPUT);
 }
 
 void loop() {
@@ -39,6 +39,6 @@ void loop() {
   //digitalWrite(13, HIGH);   // set the LED on
   //delay(10);              // wait for a second
   //digitalWrite(13, LOW);    // set the LED off
-  delay(200);
-  digitalWrite(PC13, bitRead(millis(), 9));
+  delay(500);
+  digitalWrite(PB1, !digitalRead(PB1));
 }
