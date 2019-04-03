@@ -8,10 +8,12 @@ unsigned long minutot = 0;
 unsigned long time1 = 0;
 unsigned long time2 = 0;
 String inString = "";
+#define LED PB1
+//#define LED PC13
 
 void setup() {
   Serial.begin(9600);
-  pinMode(PB1, OUTPUT);
+  pinMode(LED, OUTPUT);
 }
 
 void loop() {
@@ -30,15 +32,6 @@ void loop() {
   inString += ":";
   inString += segundot;
   Serial.println(inString);
-  //int SensorValue0 = analogRead(0);
-  //Serial.print(" - ");
-  //Serial.print(SensorValue0, DEC);
-  //int SensorValue1 = analogRead(1);
-  //Serial.print(" - ");
-  //Serial.println(SensorValue1, DEC);
-  //digitalWrite(13, HIGH);   // set the LED on
-  //delay(10);              // wait for a second
-  //digitalWrite(13, LOW);    // set the LED off
-  delay(250);
-  digitalWrite(PB1, !digitalRead(PB1));
+  delay(200);
+  digitalWrite(LED, !digitalRead(LED));
 }
