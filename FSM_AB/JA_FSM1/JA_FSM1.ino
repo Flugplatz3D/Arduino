@@ -1,67 +1,61 @@
 #include <FiniteStateMachine.h>
 //http://playground.arduino.cc/Code/FiniteStateMachine
 
-int i = 0;
-
 State noop = State(noopUpdate);  //no operation
-State fade = State(fadeEnter, fadeUpdate, NULL);
-State fade2 = State(fadeEnter2, fadeUpdate2, NULL);
+State chocar = State(chocarEnter, chocarUpdate, NULL);
+State parar = State(pararEnter, pararUpdate, NULL);
 
-/** the state machine controls which of the states get attention and execution time */
+unsigned long parcial = 0;
+
 FSM stateMachine = FSM(noop); //initialize state machine, start in state: noop
+
+#define LED PB1
+//#define LED PC13
 
 void setup() {
   Serial.begin(9600);
-  Serial.println("\nFSM Alexander Brevig\n");
-  delay(2000);
+  pinMode(LED, OUTPUT);
+  delay(1000);
+  Serial.println("");
+  parcial = millis();
+  stateMachine.transitionTo(chocar);
 }
 
 void loop() {
-  //do not remove the stateMachine.update() call, it is what makes this program 'tick'
-  if (millis() > 10000 && i == 0)
-  {
-    i = 1;
-    stateMachine.transitionTo(fade);
-  }
-  if (millis() > 20000 && i == 1)
-  {
-    i = 2;
-    stateMachine.transitionTo(fade2);
-  }
-  if (millis() > 30000 && i == 2)
-  {
-    i = 3;
-    stateMachine.transitionTo(fade);
-  }
-  if (millis() > 40000 && i == 3)
-  {
-    i = 4;
-    stateMachine.transitionTo(fade2);
-  }
   stateMachine.update();
-  delay(100);
 }
 
 //[noop state:update] the state machine is in a state that does nothing
 void noopUpdate() {
-  //this function gets called as long as the user have not pressed any buttons after startup
+}
+
+void chocarEnter() {
+  Serial.println(__FUNCTION__);
+  delay(2000);
+}
+
+void chocarUpdate() {
   Serial.print(millis());
+  Serial.print(" - ");
   Serial.println(__FUNCTION__);
+  delay(2000);
+  stateMachine.transitionTo(parar);
+}
+void pararEnter() {
+  digitalWrite(LED, HIGH );
+  Serial.println(__FUNCTION__);
+  delay(2000);
+  digitalWrite(LED, LOW );
 }
 
-void fadeEnter() {
-  Serial.println(__FUNCTION__);
-}
-
-void fadeUpdate() {
-  Serial.println(__FUNCTION__);
-}
-
-void fadeEnter2() {
-  Serial.println(__FUNCTION__);
-}
-
-void fadeUpdate2() {
+void pararUpdate() {
   Serial.print(millis());
+  Serial.print(" - ");
   Serial.println(__FUNCTION__);
+  delay(20);
+  if (millis() - parcial > 10000)
+  {
+    parcial = millis();
+    stateMachine.transitionTo(chocar);
+  }
 }
