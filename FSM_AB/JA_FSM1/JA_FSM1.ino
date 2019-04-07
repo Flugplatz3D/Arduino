@@ -9,8 +9,8 @@ unsigned long parcial = 0;
 
 FSM stateMachine = FSM(noop); //initialize state machine, start in state: noop
 
-//#define LED PB1
-#define LED PC13
+#define LED PB1
+//#define LED PC13
 //#define LED 13
 
 void setup() {
@@ -53,9 +53,9 @@ void pararUpdate() {
   Serial.print(millis());
   Serial.print(" - ");
   Serial.println(__FUNCTION__);
-  delay(20);
+  delay(50);
   digitalWrite(LED, !digitalRead(LED));
-  if (millis() - parcial > 15000)
+  if (millis() - parcial > 8000)
   {
     parcial = millis();
     stateMachine.transitionTo(chocar);
