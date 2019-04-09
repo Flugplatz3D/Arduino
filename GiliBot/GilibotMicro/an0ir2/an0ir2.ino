@@ -16,7 +16,7 @@ void loop() {
   sensorValue = analogRead(sensorPin);
   medianFilterAn0.in(sensorValue);
   sensorValueF = medianFilterAn0.out();
-  if (sensorValueF < 980)
+  if (sensorValueF < 935)
   {
     digitalWrite(ledPin, HIGH );
   }
@@ -27,5 +27,5 @@ void loop() {
   Serial.print(sensorValue);
   Serial.print(",");
   Serial.println(sensorValueF);
-  delay(50);
+  delay(10);
 }
