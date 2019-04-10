@@ -3,7 +3,7 @@
 MedianFilter medianFilterAn0(50, 4000);
 
 int sensorPin = PA0;
-int ledPin = PB1;
+int ledPin = PC13;
 int sensorValue = 0;
 int sensorValueF = 0;
 
