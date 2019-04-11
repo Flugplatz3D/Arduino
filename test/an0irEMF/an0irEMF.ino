@@ -1,6 +1,6 @@
-#include "MedianFilter.h"
+#include "SingleEMAFilterLib.h"
 
-MedianFilter medianFilterAn0(50, 2000);
+SingleEMAFilter<int> singleEMAFilter(0.01);
 
 int sensorPin = PA0;
 int ledPin = PB11;
@@ -8,27 +8,23 @@ int placaPin = PB1;
 int sensorValueON = 0;
 int sensorValueOFF = 0;
 int sensorValueF = 0;
+int rawMeasure = 0;
 
 void setup() {
   pinMode(ledPin, OUTPUT);
   pinMode(placaPin, OUTPUT);
+  digitalWrite(ledPin, HIGH);
   Serial.begin(9600);
 }
 
 void loop() {
-  digitalWrite(ledPin, LOW);
   sensorValueON = analogRead(sensorPin);
-  delayMicroseconds(750);
-  digitalWrite(ledPin, HIGH);
-  sensorValueOFF = analogRead(sensorPin);
-  medianFilterAn0.in(sensorValueON);
-  sensorValueF = medianFilterAn0.out();
+  singleEMAFilter.AddValue(sensorValueON);
+  sensorValueF = singleEMAFilter.GetLowPass();
   Serial.print(sensorValueON);
   Serial.print(",");
-  Serial.print(sensorValueOFF);
-  Serial.print(",");
   Serial.println(sensorValueF);
-  if (sensorValueON < 2000)
+  if (sensorValueF < 2000)
   {
     digitalWrite(placaPin, HIGH);
   }
@@ -36,5 +32,5 @@ void loop() {
   {
     digitalWrite(placaPin, LOW);
   }
-  delay(30);
+  delay(1);
 }
