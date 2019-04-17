@@ -45,10 +45,10 @@ void chocarUpdate() {
   stateMachine.transitionTo(parar);
 }
 void pararEnter() {
-  digitalWrite(LED, HIGH );
+//  digitalWrite(LED, HIGH );
   Serial.println(__FUNCTION__);
   delay(2000);
-  digitalWrite(LED, LOW );
+//  digitalWrite(LED, LOW );
 }
 
 void pararUpdate() {
@@ -56,7 +56,7 @@ void pararUpdate() {
   Serial.print(" - ");
   Serial.println(__FUNCTION__);
   delay(50);
-//  digitalWrite(LED, !digitalRead(LED));
+  digitalWrite(LED, !digitalRead(LED));
   if (millis() - parcial > 8000)
   {
     parcial = millis();
