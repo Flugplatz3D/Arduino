@@ -39,6 +39,6 @@ void loop() {
   //  digitalWrite(13, bitRead(millis(), 9));
   //  Serial.println(millis());
   //    digitalWrite(13, !digitalRead(13));
-  delay(200);
+  delay(150);
   digitalWrite(13, !digitalRead(13));
 }
