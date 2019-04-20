@@ -28,26 +28,28 @@ void setup() {
 void loop() {
   float h = dht.readHumidity();
   float t = dht.readTemperature();
-  oled.set1X();
-  oled.setRow(0);
-  oled.setCol(0);
-  oled.print("Temp:  ");
-  oled.set2X();
-  oled.print(t);
-  oled.set1X();
-  oled.setRow(3);
-  oled.setCol(0);
-  oled.print("Humid: ");
-  oled.set2X();
-  oled.print(h);
-  oled.clearToEOL();
-  oled.set1X();
-  oled.setRow(7);
-  oled.setCol(0);
-  oled.print(millis());
-  oled.clearToEOL();
-  delay(5000);
-  digitalWrite(LED, HIGH );
-  delay(5);
-  digitalWrite(LED, LOW );
+  if (!(isnan(h) || isnan(t))) {
+    oled.set1X();
+    oled.setRow(0);
+    oled.setCol(0);
+    oled.print("Temp:  ");
+    oled.set2X();
+    oled.print(t);
+    oled.set1X();
+    oled.setRow(3);
+    oled.setCol(0);
+    oled.print("Humid: ");
+    oled.set2X();
+    oled.print(h);
+    oled.clearToEOL();
+    oled.set1X();
+    oled.setRow(7);
+    oled.setCol(0);
+    oled.print(millis());
+    oled.clearToEOL();
+    delay(5000);
+    digitalWrite(LED, HIGH );
+    delay(5);
+    digitalWrite(LED, LOW );
+  }
 }
