@@ -3,3 +3,5 @@ http://drazzy.com/package_drazzy.com_index.json
 https://raw.githubusercontent.com/sparkfun/Arduino_Boards/master/IDE_Board_Manager/package_sparkfun_index.json
 
 https://mcudude.github.io/MiniCore/package_MCUdude_MiniCore_index.json
+
+https://raw.githubusercontent.com/carlosefr/atmega/master/package_carlosefr_atmega_index.json
