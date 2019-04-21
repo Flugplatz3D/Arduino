@@ -1,6 +1,6 @@
 #include "SingleEMAFilterLib.h"
 
-SingleEMAFilter<int> singleEMAFilter(0.01);
+SingleEMAFilter<int> singleEMAFilter(0.02);
 
 int sensorPin = PA0;
 int ledPin = PB11;
@@ -32,5 +32,5 @@ void loop() {
   {
     digitalWrite(placaPin, LOW);
   }
-  delay(1);
+  delay(2);
 }
