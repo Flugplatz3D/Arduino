@@ -1,12 +1,11 @@
 #include "SingleEMAFilterLib.h"
 
-SingleEMAFilter<int> singleEMAFilter(0.02);
+SingleEMAFilter<int> singleEMAFilter(0.01);
 
 int sensorPin = PA0;
 int ledPin = PB11;
 int placaPin = PB1;
-int sensorValueON = 0;
-int sensorValueOFF = 0;
+int sensorValue = 0;
 int sensorValueF = 0;
 int rawMeasure = 0;
 
@@ -18,13 +17,13 @@ void setup() {
 }
 
 void loop() {
-  sensorValueON = analogRead(sensorPin);
-  singleEMAFilter.AddValue(sensorValueON);
+  sensorValue = analogRead(sensorPin);
+  singleEMAFilter.AddValue(sensorValue);
   sensorValueF = singleEMAFilter.GetLowPass();
-  Serial.print(sensorValueON);
+  Serial.print(sensorValue);
   Serial.print(",");
   Serial.println(sensorValueF);
-  if (sensorValueF < 3750)
+  if (sensorValueF < 1700)
   {
     digitalWrite(placaPin, HIGH);
   }
@@ -32,5 +31,5 @@ void loop() {
   {
     digitalWrite(placaPin, LOW);
   }
-  delay(2);
+  delay(1);
 }
