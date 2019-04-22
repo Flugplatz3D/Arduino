@@ -12,7 +12,8 @@ FSM stateMachine = FSM(noop); //initialize state machine, start in state: noop
 //#define LED PB1
 //#define LED PC13
 //#define LED PC14
-#define LED 13
+//#define LED 13
+#define LED 2
 
 void setup() {
   Serial.begin(9600);
@@ -55,7 +56,7 @@ void pararUpdate() {
   Serial.print(millis());
   Serial.print(" - ");
   Serial.println(__FUNCTION__);
-  delay(100);
+  delay(25);
   digitalWrite(LED, !digitalRead(LED));
   if (millis() - parcial > 8000)
   {
