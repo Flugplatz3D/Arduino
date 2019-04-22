@@ -1,4 +1,4 @@
-float EMA_ALPHA = 0.005;
+float EMA_ALPHA = 0.008;
 int EMA_LP = 0;
 int EMA_HP = 0;
 
@@ -23,7 +23,15 @@ void loop()
   Serial.print(sensorValue);
   Serial.print(",");
   Serial.println(sensorValueF);
-  delay(5);
+  delayMicroseconds(1800);
+  if (sensorValueF < 2600)
+  {
+    digitalWrite(placaPin, HIGH);
+  }
+  else
+  {
+    digitalWrite(placaPin, LOW);
+  }
 }
 
 int EMALowPassFilter(int value)
