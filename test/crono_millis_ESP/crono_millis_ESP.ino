@@ -32,15 +32,6 @@ void loop() {
   inString += ":";
   inString += segundot;
   Serial.println(inString);
-  //int SensorValue0 = analogRead(0);
-  //Serial.print(" - ");
-  //Serial.print(SensorValue0, DEC);
-  //int SensorValue1 = analogRead(1);
-  //Serial.print(" - ");
-  //Serial.println(SensorValue1, DEC);
-  //digitalWrite(13, HIGH);   // set the LED on
-  //delay(10);              // wait for a second
-  //digitalWrite(13, LOW);    // set the LED off
-  //delay(100);
+  delay(250);
   digitalWrite(LED_BUILTIN, bitRead(millis(),9));
 }
