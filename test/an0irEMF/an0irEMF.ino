@@ -23,7 +23,7 @@ void loop() {
   Serial.print(sensorValue);
   Serial.print(",");
   Serial.println(sensorValueF);
-  if (sensorValueF < 1700)
+  if (sensorValueF < 3750)
   {
     digitalWrite(placaPin, HIGH);
   }
