@@ -24,7 +24,7 @@ void loop()
   Serial.print(",");
   Serial.println(sensorValueF);
   delayMicroseconds(1800);
-  if (sensorValueF < 2600)
+  if (sensorValueF < 3700)
   {
     digitalWrite(placaPin, HIGH);
   }
