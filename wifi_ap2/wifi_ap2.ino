@@ -28,9 +28,9 @@ void handleRoot() {
   h = dht.readHumidity();
 
   Serial.print(t);
-  Serial.print("ºC - ");
+  Serial.print(" C - ");
   Serial.print(h);
-  Serial.println("%");
+  Serial.println(" %");
   
   miliseg = millis();
   Temperatura = t;
