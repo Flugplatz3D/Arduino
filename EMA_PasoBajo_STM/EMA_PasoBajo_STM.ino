@@ -1,17 +1,19 @@
-float EMA_ALPHA = 0.05;
+float EMA_ALPHA = 0.01;
+//float EMA_ALPHA = 0.05;
 int EMA_LP = 0;
 int EMA_HP = 0;
 
-int sensorPin = A0;
-int ledPin = 2;
-int placaPin = 13;
+int sensorPin = PA0;
+int ledPin = PB11;
+int placaPin = PB1;
 int sensorValue = 0;
 int sensorValueF = 0;
 
 void setup()
 {
   pinMode(ledPin, OUTPUT);
-  digitalWrite(ledPin, LOW);
+  pinMode(placaPin, OUTPUT);
+  digitalWrite(ledPin, HIGH);
   Serial.begin(9600);
 }
 
@@ -22,16 +24,17 @@ void loop()
   Serial.print(sensorValue);
   Serial.print(",");
   Serial.println(sensorValueF);
-  //  delayMicroseconds(1800);
+  delayMicroseconds(1800);
   //  delay(19);
   //  delayMicroseconds(9800);
-  if (sensorValueF < 800)
+
+  if (sensorValueF < 3500)
   {
     digitalWrite(placaPin, HIGH);
   }
   else
   {
-    digitalWrite(placaPin, LOW );
+    digitalWrite(placaPin, LOW);
   }
 }
 
