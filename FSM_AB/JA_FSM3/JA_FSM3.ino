@@ -71,7 +71,7 @@ void pararUpdate() {
 
 int ReadSensor(int pin)
 {
-  sensor = analogRead(pin);
+  sensorValue = analogRead(pin);
   return EMALowPassFilter(sensorValue);
 }
 
