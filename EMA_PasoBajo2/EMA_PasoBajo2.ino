@@ -29,13 +29,13 @@ void loop()
 
   sensorValueF2 = 2 * sensorValueF - ema_ema;
 
-//  Serial.print(sensorValue);
+  Serial.print(sensorValue);
+  Serial.print(",");
+//  Serial.print(sensorValueF);
 //  Serial.print(",");
-////  Serial.print(sensorValueF);
-////  Serial.print(",");
-//  Serial.println(sensorValueF2);
+  Serial.println(sensorValueF2);
 
-  if (sensorValueF2 < 800)
+  if (sensorValueF2 < 1000)
   {
     digitalWrite(ledPin, HIGH);
   }

@@ -27,11 +27,11 @@ void loop()
   //  delayMicroseconds(9800);
   if (sensorValueF < 800)
   {
-    digitalWrite(placaPin, HIGH);
+    digitalWrite(ledPin, HIGH);
   }
   else
   {
-    digitalWrite(placaPin, LOW );
+    digitalWrite(ledPin, LOW );
   }
 }
 
