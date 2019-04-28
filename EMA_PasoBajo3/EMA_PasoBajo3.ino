@@ -1,4 +1,5 @@
 #include "EMAFilter.h"
+#include "DoubleEMAFilterLib.h"
 
 int sensorPin = A0;
 int ledPin = 2;
@@ -11,6 +12,8 @@ int sensorValueF2 = 0;
 double ema_a = 0.05;
 
 EMAFilter EMApbF(ema_a);
+
+DoubleEMAFilter<int> doubleEMAFilter(0.025, 0.1);
 
 
 void setup()
@@ -31,8 +34,8 @@ void loop()
 
   Serial.print(sensorValue);
   Serial.print(",");
-  Serial.print(sensorValueF);
-  Serial.print(",");
+//  Serial.print(sensorValueF);
+//  Serial.print(",");
   Serial.println(sensorValueF2);
 
   if (sensorValueF2 < 1000)
@@ -45,6 +48,6 @@ void loop()
   }
 }
 int EMA_function(double alpha, int latest, int stored) {
-    return round(alpha * latest) + round((1 - alpha) * stored);
-//  return alpha * latest + (1 - alpha) * stored;
+  //  return round(alpha * latest) + round((1 - alpha) * stored);
+  return alpha * latest + (1 - alpha) * stored;
 }

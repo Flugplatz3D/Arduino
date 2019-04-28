@@ -1,4 +1,4 @@
-float EMA_ALPHA = 0.05;
+float EMA_ALPHA = 0.1;
 int EMA_LP = 0;
 int EMA_HP = 0;
 
