@@ -8,6 +8,7 @@ unsigned long minutot = 0;
 unsigned long time1 = 0;
 unsigned long time2 = 0;
 String inString = "";
+
 #define LED PB1
 //#define LED PC13
 
