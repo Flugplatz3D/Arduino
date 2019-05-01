@@ -212,7 +212,7 @@ class OrangutanAnalog
 	// voltage should be done with the board-specific functions above.
 	static inline unsigned int readBatteryMillivolts()
 	{
-		return readBatteryMillivolts_SV();
+		return readBatteryMillivolts_3pi();
 	}
 	
 	// returns the output of the Orangutan LV's temperature sensor in tenths of a 

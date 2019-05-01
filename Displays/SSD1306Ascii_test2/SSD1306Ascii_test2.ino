@@ -19,7 +19,7 @@ unsigned long time2 = 0;
 String inString = "";
 
 void setup () {
-  Serial.begin(9600);
+//  Serial.begin(9600);
   Wire.begin();
   Wire.setClock(400000L);
   //  oled.begin(&Adafruit128x64, I2C_ADDRESS);
@@ -38,7 +38,7 @@ void setup () {
 //------------------------------------------------------------------------------
 void loop () {
   time2 = millis();
-  Serial.println(time2);
+//  Serial.println(time2);
   segundo = time2 / 1000;
   minuto = segundo / 60;
   hora = minuto / 60;

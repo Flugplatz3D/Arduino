@@ -30,15 +30,6 @@ void loop() {
   inString += ":";
   inString += segundot;
   Serial.println(inString);
-  //int SensorValue0 = analogRead(0);
-  //Serial.print(" - ");
-  //Serial.print(SensorValue0, DEC);
-  //int SensorValue1 = analogRead(1);
-  //Serial.print(" - ");
-  //Serial.println(SensorValue1, DEC);
-  //  digitalWrite(13, bitRead(millis(), 9));
-  //  Serial.println(millis());
-  //    digitalWrite(13, !digitalRead(13));
   delay(150);
   digitalWrite(13, !digitalRead(13));
 }
