@@ -1,6 +1,6 @@
-#define button1Pin PB3
-#define button2Pin PB6
-#define button3Pin PB9
+#define button1Pin PA8
+#define button2Pin PB14
+#define button3Pin PB12
 #define ledPin PC13
 
 int boton1 = 0;

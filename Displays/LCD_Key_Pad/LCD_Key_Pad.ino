@@ -30,10 +30,10 @@ int read_LCD_buttons()
   if (adc_key_in > 1000) return btnNONE; // We make this the 1st option for speed reasons since it will be the most likely result
   // For V1.1 us this threshold
   if (adc_key_in < 50)   return btnRIGHT;
-  if (adc_key_in < 250)  return btnUP;
-  if (adc_key_in < 450)  return btnDOWN;
-  if (adc_key_in < 650)  return btnLEFT;
-  if (adc_key_in < 850)  return btnSELECT;
+  if (adc_key_in < 200)  return btnUP;
+  if (adc_key_in < 350)  return btnDOWN;
+  if (adc_key_in < 550)  return btnLEFT;
+  if (adc_key_in < 800)  return btnSELECT;
   return btnNONE;  // when all others fail, return this...
 }
 
@@ -41,14 +41,20 @@ void setup()
 {
   lcd.begin(16, 2);              // start the library
   lcd.setCursor(0, 0);
-  lcd.print("Push the buttons"); // print a simple message
+  lcd.print("Botones"); // print a simple message
 }
 
 void loop()
 {
-  lcd.setCursor(9, 1);           // move cursor to second line "1" and 9 spaces over
+  lcd.setCursor(9, 0);           // move cursor to second line "1" and 9 spaces over
   lcd.print(millis() / 1000);    // display seconds elapsed since power-up
 
+  //  lcd.setCursor(9, 1);
+  //  lcd.print("    ");
+
+  lcd.setCursor(9, 1);
+  lcd.print(adc_key_in);
+  lcd.print("   ");
 
   lcd.setCursor(0, 1);           // move to the begining of the second line
   lcd_key = read_LCD_buttons();  // read the buttons
