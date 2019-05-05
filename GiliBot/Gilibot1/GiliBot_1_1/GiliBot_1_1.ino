@@ -52,7 +52,7 @@ void loop() {
   sensorValueL = analogRead(sensorPinL);
   if (sensorValueR <= 50 && sensorValueL <= 50)
   {
-    Motores.Move(255, 255);
+    Motores.Move(100, 100);
     pixels.setPixelColor(0, pixels.Color(0, 15, 0));
     pixels.setPixelColor(1, pixels.Color(0, 0, 0));
     pixels.setPixelColor(2, pixels.Color(0, 15, 0));
@@ -77,10 +77,10 @@ void loop() {
   }
   if (sensorValueR >= 50 && sensorValueL <= 50)
   {
-    Motores.Move(-75, 255);
+    Motores.Move(-75, 125);
   }
   if (sensorValueR <= 50 && sensorValueL >= 50)
   {
-    Motores.Move(255, -75);
+    Motores.Move(125, -75);
   }
 }
