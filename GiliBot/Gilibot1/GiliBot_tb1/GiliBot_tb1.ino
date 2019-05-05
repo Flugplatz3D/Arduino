@@ -1,8 +1,8 @@
-#include "Motors293.h"
+#include "Motors.h"
 #include <Adafruit_NeoPixel.h>
 
-#define PIN  6
-#define NUMPIXELS  3
+#define PIN 3
+#define NUMPIXELS 3
 
 Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
 
@@ -12,7 +12,7 @@ int sensorValueR = 0;
 int sensorValueL = 0;
 int i = 0, f = 0;
 
-Motors293 Motores;
+Motors Motores;
 
 void setup() {
   Serial.begin(9600);
@@ -40,11 +40,11 @@ void setup() {
   pixels.setPixelColor(2, pixels.Color(0, 0, 0));
   pixels.show();
   delay(1000);
+  Motores.Stop();
   pixels.setPixelColor(0, pixels.Color(0, 15, 0));
   pixels.setPixelColor(1, pixels.Color(0, 0, 0));
   pixels.setPixelColor(2, pixels.Color(0, 15, 0));
   pixels.show();
-  Motores.Stop();
 }
 
 void loop() {
@@ -52,7 +52,7 @@ void loop() {
   sensorValueL = analogRead(sensorPinL);
   if (sensorValueR <= 50 && sensorValueL <= 50)
   {
-    Motores.Move(255, 255);
+    Motores.Move(150, 150);
     pixels.setPixelColor(0, pixels.Color(0, 15, 0));
     pixels.setPixelColor(1, pixels.Color(0, 0, 0));
     pixels.setPixelColor(2, pixels.Color(0, 15, 0));
@@ -61,14 +61,14 @@ void loop() {
   }
   if (sensorValueR >= 50 && sensorValueL >= 50)
   {
-    if (f < 100)
+    if (f < 50)
     {
       Motores.Move(-100, -100);
       f++;
     }
     else
     {
-      Motores.Stop();
+      Motores.Brake();
       pixels.setPixelColor(0, pixels.Color(15, 0, 0));
       pixels.setPixelColor(1, pixels.Color(0, 0, 0));
       pixels.setPixelColor(2, pixels.Color(15, 0, 0));
