@@ -19,7 +19,7 @@ void setup() {
   Serial.begin(9600);
   pinMode(LED, OUTPUT);
   digitalWrite(LED, LOW);
-  delay(1000);
+  delay(2000);
   Serial.println("");
   parcial = millis();
   stateMachine.transitionTo(chocar);
@@ -58,7 +58,7 @@ void pararUpdate() {
   Serial.println(__FUNCTION__);
   delay(10);
   digitalWrite(LED, !digitalRead(LED));
-  if (millis() - parcial > 8000)
+  if (millis() - parcial > 10000)
   {
     parcial = millis();
     stateMachine.transitionTo(chocar);
