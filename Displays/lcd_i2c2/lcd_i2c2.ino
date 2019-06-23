@@ -1,11 +1,10 @@
-
 #include <Wire.h>
 #include <LCD.h>
 #include <LiquidCrystal_I2C.h>
 
 LiquidCrystal_I2C lcd(0x27, 2, 1, 0, 4, 5, 6, 7); // 0x27 suele ser la dirección I2C
-unsigned long time1 = 0;
 bool Luz = HIGH;
+unsigned long cuenta = 0;
 
 void setup() {
   // initialize the LCD
@@ -14,16 +13,11 @@ void setup() {
   lcd.setBacklight(Luz);
   lcd.home();
   //lcd.clear();
-  time1 = millis();
 }
 
 void loop() {
   lcd.setCursor(0, 0);
-  lcd.print(millis());
-//  if (millis() - time1 > 60000)
-//  {
-    time1 = millis();
-    //Luz = !Luz;
-    //lcd.setBacklight(Luz);
-//  }
+  lcd.print(cuenta);
+  cuenta++;
+  delay(50);
 }
