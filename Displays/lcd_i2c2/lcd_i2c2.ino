@@ -7,6 +7,7 @@ bool Luz = HIGH;
 unsigned long cuenta = 0;
 
 void setup() {
+  Serial.begin(9600);
   // initialize the LCD
   lcd.begin(16, 2);                  // LCD 16x2
   lcd.setBacklightPin(3, POSITIVE);  // POSITIVE = enum definido en LCD.h
@@ -18,6 +19,7 @@ void setup() {
 void loop() {
   lcd.setCursor(0, 0);
   lcd.print(cuenta);
+  Serial.println(cuenta);
   cuenta++;
-  delay(50);
+  //delay(50);
 }
