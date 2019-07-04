@@ -19,5 +19,5 @@ void loop() {
   lcd.setCursor(0, 0);
   lcd.print(cuenta);
   cuenta++;
-  delay(100);
+  delay(50);
 }
