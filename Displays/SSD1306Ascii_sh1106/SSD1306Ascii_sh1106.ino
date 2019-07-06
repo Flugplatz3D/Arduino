@@ -6,6 +6,7 @@
 #define I2C_ADDRESS 0x3C
 
 SSD1306AsciiWire oled;
+unsigned long cuenta = 0;
 
 void setup () {
   Wire.begin();
@@ -17,11 +18,14 @@ void setup () {
   oled.print("Test SH1106");
   delay(3000);
   oled.clear();
+  oled.set2X();
 }
 
 void loop () {
   oled.setRow(0);
   oled.setCol(0);
-  oled.print(millis());
+  cuenta++;
+  oled.print(cuenta);
   oled.clearToEOL();
+  //delay(50);
 }
