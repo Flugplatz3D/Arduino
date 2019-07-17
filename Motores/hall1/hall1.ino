@@ -6,7 +6,7 @@ unsigned long timeActual = 0;
 unsigned long timeAnterior = 0;
 unsigned long timeResta = 0;
 unsigned long timeRestaEMA = 0;
-float EMA_ALPHA = 0.5;
+float EMA_ALPHA = 0.1;
 int EMA_LP = 400;
 float rpm;
 
