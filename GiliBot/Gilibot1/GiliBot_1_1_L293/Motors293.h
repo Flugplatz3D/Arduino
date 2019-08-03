@@ -1,6 +1,6 @@
 #include <Arduino.h>
 
-//pins L293 - Mini PRO
+//Mini PRO - pins L293
 #define AIN1 7 //2
 #define AIN2 8 //7
 #define PWMA 9 //1
