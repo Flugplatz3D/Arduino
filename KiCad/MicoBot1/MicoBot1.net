@@ -1,7 +1,7 @@
 (export (version D)
   (design
     (source C:\Micros\MicoBot\KiCad\MicoBot1\MicoBot1.sch)
-    (date "06/08/2019 17:07:25")
+    (date "06/08/2019 17:38:42")
     (tool "Eeschema (5.1.2)-2")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
@@ -87,7 +87,7 @@
       (tstamp 5CB8BF62))
     (comp (ref Y1)
       (value Crystal_Small)
-      (footprint Crystal:Crystal_HC18-U_Vertical)
+      (footprint Crystal:Crystal_HC49-4H_Vertical)
       (datasheet ~)
       (libsource (lib Device) (part Crystal_Small) (description "Two pin crystal, small symbol"))
       (sheetpath (names /) (tstamps /))
