@@ -294,7 +294,7 @@ U 1 1 5CB975FD
 P 4900 1400
 F 0 "Y1" H 4900 1625 50  0000 C CNN
 F 1 "Crystal_Small" H 4900 1534 50  0000 C CNN
-F 2 "Crystal:Crystal_HC18-U_Vertical" H 4900 1400 50  0001 C CNN
+F 2 "Crystal:Crystal_HC49-4H_Vertical" H 4900 1400 50  0001 C CNN
 F 3 "~" H 4900 1400 50  0001 C CNN
 	1    4900 1400
 	1    0    0    -1  
