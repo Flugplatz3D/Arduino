@@ -1,88 +1,94 @@
 #include "Motors293.h"
-#include <Adafruit_NeoPixel.h>
 
-#define PIN  6
-#define NUMPIXELS  3
+#define FADE 15
+#define PAUSA 750
 
-Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
-
-int sensorPinR = A0;
-int sensorPinL = A1;
-int sensorValueR = 0;
-int sensorValueL = 0;
-int i = 0, f = 0;
+int i = 0;
 
 Motors293 Motores;
 
 void setup() {
-  Serial.begin(9600);
-  pixels.begin(); // This initializes the NeoPixel library.
-  pixels.setPixelColor(0, pixels.Color(40, 0, 20));
-  pixels.setPixelColor(1, pixels.Color(40, 0, 20));
-  pixels.setPixelColor(2, pixels.Color(40, 0, 20));
-  pixels.show(); // This sends the updated pixel color to the hardware.
-  delay(5000);
-  for (i = 0; i < 10  ; i++)
-  {
-    pixels.setPixelColor(0, pixels.Color(0, 0, 80));
-    pixels.setPixelColor(1, pixels.Color(0, 0, 0));
-    pixels.setPixelColor(2, pixels.Color(0, 0, 80));
-    pixels.show();
-    delay(250);
-    pixels.setPixelColor(0, pixels.Color(0, 0, 0));
-    pixels.setPixelColor(1, pixels.Color(80, 0, 0));
-    pixels.setPixelColor(2, pixels.Color(0, 0, 0));
-    pixels.show();
-    delay(250);
-  }
-  pixels.setPixelColor(0, pixels.Color(0, 0, 0));
-  pixels.setPixelColor(1, pixels.Color(0, 0, 0));
-  pixels.setPixelColor(2, pixels.Color(0, 0, 0));
-  pixels.show();
-  delay(1000);
-  pixels.setPixelColor(0, pixels.Color(0, 15, 0));
-  pixels.setPixelColor(1, pixels.Color(0, 0, 0));
-  pixels.setPixelColor(2, pixels.Color(0, 15, 0));
-  pixels.show();
   Motores.Stop();
+  delay(5000);
 }
 
 void loop() {
-  for (i = 0; i < 10  ; i++)
-  {} 
-  sensorValueR = analogRead(sensorPinR);
-  sensorValueL = analogRead(sensorPinL);
-  if (sensorValueR <= 50 && sensorValueL <= 50)
+  for (i = 0; i < 255  ; i++)
   {
-    Motores.Move(100, 100);
-    pixels.setPixelColor(0, pixels.Color(0, 15, 0));
-    pixels.setPixelColor(1, pixels.Color(0, 0, 0));
-    pixels.setPixelColor(2, pixels.Color(0, 15, 0));
-    pixels.show();
-    f = 0;
+    Motores.Move(i, 0);
+    delay(FADE);
   }
-  if (sensorValueR >= 50 && sensorValueL >= 50)
+  delay(PAUSA);
+  for (i = 255; i > 0  ; i--)
   {
-    if (f < 100)
-    {
-      Motores.Move(-100, -100);
-      f++;
-    }
-    else
-    {
-      Motores.Stop();
-      pixels.setPixelColor(0, pixels.Color(15, 0, 0));
-      pixels.setPixelColor(1, pixels.Color(0, 0, 0));
-      pixels.setPixelColor(2, pixels.Color(15, 0, 0));
-      pixels.show();
-    }
+    Motores.Move(i, 0);
+    delay(FADE);
   }
-  if (sensorValueR >= 50 && sensorValueL <= 50)
+  Motores.Stop();
+  delay(PAUSA);
+  for (i = 0; i < 255  ; i++)
   {
-    Motores.Move(-75, 125);
+    Motores.Move(0, i);
+    delay(FADE);
   }
-  if (sensorValueR <= 50 && sensorValueL >= 50)
+  delay(PAUSA);
+  for (i = 255; i > 0  ; i--)
   {
-    Motores.Move(125, -75);
+    Motores.Move(0, i);
+    delay(FADE);
   }
+  Motores.Stop();
+  delay(PAUSA);
+  for (i = 0; i > -255  ; i--)
+  {
+    Motores.Move(i, 0);
+    delay(FADE);
+  }
+  delay(PAUSA);
+  for (i = -255; i < 0  ; i++)
+  {
+    Motores.Move(i, 0);
+    delay(FADE);
+  }
+  Motores.Stop();
+  delay(PAUSA);
+  for (i = 0; i > -255  ; i--)
+  {
+    Motores.Move(0, i);
+    delay(FADE);
+  }
+  delay(PAUSA);
+  for (i = -255; i < 0  ; i++)
+  {
+    Motores.Move(0, i);
+    delay(FADE);
+  }
+  Motores.Stop();
+  delay(PAUSA);
+    for (i = 0; i < 255  ; i++)
+  {
+    Motores.Move(i, i);
+    delay(FADE);
+  }
+  delay(PAUSA);
+  for (i = 255; i > 0  ; i--)
+  {
+    Motores.Move(i, i);
+    delay(FADE);
+  }
+  Motores.Stop();
+  delay(PAUSA);
+  for (i = 0; i > -255  ; i--)
+  {
+    Motores.Move(i, i);
+    delay(FADE);
+  }
+  delay(PAUSA);
+  for (i = -255; i < 0  ; i++)
+  {
+    Motores.Move(i, i);
+    delay(FADE);
+  }
+  Motores.Stop();
+  delay(PAUSA);
 }
