@@ -48,6 +48,8 @@ void setup() {
 }
 
 void loop() {
+  for (i = 0; i < 10  ; i++)
+  {} 
   sensorValueR = analogRead(sensorPinR);
   sensorValueL = analogRead(sensorPinL);
   if (sensorValueR <= 50 && sensorValueL <= 50)
