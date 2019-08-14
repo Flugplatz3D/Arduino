@@ -1,19 +1,12 @@
 #include <Arduino.h>
 
-////Micro PRO - pins L293
-//#define AIN1 7 //2
-//#define AIN2 8 //7
-//#define PWMA 9 //1
-//#define BIN1 14 //12 //10
-//#define BIN2 16 //11 //15
-//#define PWMB 10 //9
-
-#define BIN1 7 //2
-#define BIN2 8 //7
-#define PWMB 9 //1
-#define AIN1 14 //12 //10
-#define AIN2 16 //11 //15
-#define PWMA 10 //9
+//Arduino - pins L293 - ATMega328p
+#define AIN1 11 // 10 // 18
+#define AIN2 12 // 15 // 17
+#define PWMA 10 // 9 // 16
+#define BIN1 8 // 2 // 13
+#define BIN2 7 // 7 // 14
+#define PWMB 9 // 1 // 15
 
 #ifndef Motors293_h
 #define Motors293_h

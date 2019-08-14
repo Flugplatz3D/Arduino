@@ -2,6 +2,7 @@
 
 #define FADE 15
 #define PAUSA 750
+#define LED 13
 
 int i = 0;
 
@@ -9,7 +10,14 @@ Motors293 Motores;
 
 void setup() {
   Motores.Stop();
-  delay(5000);
+  pinMode(LED, OUTPUT);
+  digitalWrite(LED, LOW);
+  delay(2000);
+  for (i = 0; i < 20  ; i++)
+  {
+    Flash();
+  }
+  delay(2000);
 }
 
 void loop() {
@@ -25,6 +33,7 @@ void loop() {
     delay(FADE);
   }
   Motores.Stop();
+  Flash();
   delay(PAUSA);
   for (i = 0; i < 255  ; i++)
   {
@@ -38,6 +47,7 @@ void loop() {
     delay(FADE);
   }
   Motores.Stop();
+  Flash();
   delay(PAUSA);
   for (i = 0; i > -255  ; i--)
   {
@@ -51,6 +61,7 @@ void loop() {
     delay(FADE);
   }
   Motores.Stop();
+  Flash();
   delay(PAUSA);
   for (i = 0; i > -255  ; i--)
   {
@@ -64,8 +75,9 @@ void loop() {
     delay(FADE);
   }
   Motores.Stop();
+  Flash();
   delay(PAUSA);
-    for (i = 0; i < 255  ; i++)
+  for (i = 0; i < 255  ; i++)
   {
     Motores.Move(i, i);
     delay(FADE);
@@ -77,6 +89,7 @@ void loop() {
     delay(FADE);
   }
   Motores.Stop();
+  Flash();
   delay(PAUSA);
   for (i = 0; i > -255  ; i--)
   {
@@ -90,5 +103,14 @@ void loop() {
     delay(FADE);
   }
   Motores.Stop();
+  Flash();
   delay(PAUSA);
+}
+
+void Flash()
+{
+  digitalWrite(LED, HIGH);
+  delay(25);
+  digitalWrite(LED, LOW);
+  delay(100);
 }
