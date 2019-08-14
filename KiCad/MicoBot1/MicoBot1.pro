@@ -1,4 +1,4 @@
-update=06/08/2019 22:49:53
+update=14/08/2019 20:54:47
 version=1
 last_client=kicad
 [general]
@@ -31,7 +31,7 @@ MinHoleToHole=0.25
 TrackWidth1=0.4
 TrackWidth2=0.4
 TrackWidth3=0.5
-ViaDiameter1=0.8
+ViaDiameter1=1
 ViaDrill1=0.4
 dPairWidth1=0.2
 dPairGap1=0.25
@@ -229,9 +229,9 @@ Enabled=0
 [pcbnew/Netclasses]
 [pcbnew/Netclasses/Default]
 Name=Default
-Clearance=0.2
+Clearance=0.25
 TrackWidth=0.4
-ViaDiameter=0.8
+ViaDiameter=1
 ViaDrill=0.4
 uViaDiameter=0.3
 uViaDrill=0.1
@@ -239,10 +239,10 @@ dPairWidth=0.2
 dPairGap=0.25
 dPairViaGap=0.25
 [pcbnew/Netclasses/1]
-Name=MicoBot
-Clearance=0.3
+Name=Potencia
+Clearance=0.25
 TrackWidth=0.6
-ViaDiameter=1
+ViaDiameter=1.2
 ViaDrill=0.4
 uViaDiameter=0.3
 uViaDrill=0.1
