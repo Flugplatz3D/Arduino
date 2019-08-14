@@ -1,6 +1,8 @@
+#define LED 7
+
 void setup() {
-  pinMode(13, OUTPUT);
+  pinMode(LED, OUTPUT);
 }
 void loop() {
-  digitalWrite(13, bitRead(millis(), 9));
+  digitalWrite(LED, bitRead(millis(), 8));
 }
