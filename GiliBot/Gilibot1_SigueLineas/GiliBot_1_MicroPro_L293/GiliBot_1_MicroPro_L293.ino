@@ -1,6 +1,3 @@
-
-
-
 #include "Motors293.h"
 #include <Adafruit_NeoPixel.h>
 
