@@ -1,8 +1,8 @@
 //Arduino - pins L293 - ATMega328p
-#define AIN1 12
-#define AIN2 13
-#define BIN1 11
-#define BIN2 10
+#define AIN1 3
+#define AIN2 2
+#define BIN1 5
+#define BIN2 4
 
 int i = 0;
 
@@ -16,16 +16,38 @@ void setup() {
   pinMode(BIN2, OUTPUT);
   digitalWrite(BIN2, LOW);
   delay(2000);
+  for (i = 0; i < 1000  ; i++)
+  {
+    digitalWrite(AIN1, HIGH);
+    delay(1);
+    digitalWrite(AIN1, LOW);
+    delay(3);
+  }
+  for (i = 0; i < 1000  ; i++)
+  {
+    digitalWrite(AIN2, HIGH);
+    delay(1);
+    digitalWrite(AIN2, LOW);
+    delay(3);
+  }
+  for (i = 0; i < 1000  ; i++)
+  {
+    digitalWrite(BIN1, HIGH);
+    delay(1);
+    digitalWrite(BIN1, LOW);
+    delay(3);
+  }
+  for (i = 0; i < 1000  ; i++)
+  {
+    digitalWrite(BIN2, HIGH);
+    delay(1);
+    digitalWrite(BIN2, LOW);
+    delay(3);
+  }
 }
 
 void loop() {
 
-  for (i = 0; i < 200  ; i++)
-  {
-    digitalWrite(BIN2, HIGH);
-    delay(25);
-    digitalWrite(BIN2, LOW);
-    delay(75);
-  }
+
 
 }
