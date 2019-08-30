@@ -1,8 +1,8 @@
 //Arduino - pins L293 - MicroPro
-#define AIN1 3
-#define AIN2 2
-#define BIN1 5
-#define BIN2 4
+#define AIN1 2
+#define AIN2 3
+#define BIN1 4
+#define BIN2 5
 
 #define LED 13
 
