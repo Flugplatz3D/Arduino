@@ -19,6 +19,12 @@ void setup() {
   digitalWrite(BIN2, LOW);
   pinMode(LED, OUTPUT);
   digitalWrite(LED, LOW);
+  pinMode(10, OUTPUT);
+  pinMode(9, OUTPUT);
+  //  digitalWrite(9, HIGH);
+  //  digitalWrite(10, HIGH);
+  analogWrite (9, 255);
+  analogWrite (10, 230);
   delay(2000);
   for (i = 0; i < 20  ; i++)
   {
@@ -28,27 +34,6 @@ void setup() {
 }
 
 void loop() {
-  //  for (i = 0; i < 1000  ; i++)
-  //  {
-  //    digitalWrite(AIN1, HIGH);
-  //    digitalWrite(BIN1, HIGH);
-  //    delay(2);
-  //    digitalWrite(AIN1, LOW);
-  //    digitalWrite(BIN1, LOW);
-  //    delay(1);
-  //  }
-  //  delay(2000);
-  //  Flash();
-  //  for (i = 0; i < 500  ; i++)
-  //  {
-  //    digitalWrite(AIN2, HIGH);
-  //    digitalWrite(BIN2, HIGH);
-  //    delay(1);
-  //    digitalWrite(AIN2, LOW);
-  //    digitalWrite(BIN2, LOW);
-  //    delayMicroseconds(1080);
-  //  }
-  //  delay(1000);
   for (i = 0; i < 5  ; i++)
   {
     Flash();
