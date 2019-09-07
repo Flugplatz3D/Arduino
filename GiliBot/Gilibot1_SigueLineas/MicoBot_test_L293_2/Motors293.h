@@ -1,8 +1,8 @@
 #include <Arduino.h>
 
-//Mini PRO - pins L293
-#define AIN1 16 //10
-#define AIN2 14 //15
+//328 - pins L293
+#define AIN1 11 //10
+#define AIN2 12 //15
 #define PWMA 10 //9
 #define BIN1 8 //2
 #define BIN2 7 //7
