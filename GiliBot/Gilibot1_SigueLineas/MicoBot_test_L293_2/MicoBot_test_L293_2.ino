@@ -12,7 +12,7 @@ void setup() {
   Motores.Stop();
   pinMode(LED, OUTPUT);
   digitalWrite(LED, LOW);
-  delay(2000);
+  delay(1000);
   for (i = 0; i < 20  ; i++)
   {
     Flash();
@@ -116,7 +116,7 @@ void loop() {
 void Flash()
 {
   digitalWrite(LED, HIGH);
-  delay(25);
+  delay(50);
   digitalWrite(LED, LOW);
   delay(100);
 }
