@@ -9,7 +9,7 @@ int i = 0;
 #define LED 13
 
 #define FL 100
-#define FR 85
+#define FR 100
 #define RL -20
 #define RR -20
 #define umbral 300
