@@ -8,8 +8,8 @@ int i = 0;
 
 #define LED 13
 
-#define FL 110
-#define FR 80
+#define FL 100
+#define FR 85
 #define RL -20
 #define RR -20
 #define umbral 300
