@@ -33,11 +33,11 @@
 /*!
  *  @brief  Instantiates a new PCA9685 PWM driver chip with the I2C address on a
  * TwoWire interface
+ *  @param  addr The 7-bit I2C address to locate this chip, default is 0x40
  *  @param  i2c  A pointer to a 'Wire' compatible object that we'll use to
  * communicate with
- *  @param  addr The 7-bit I2C address to locate this chip, default is 0x40
  */
-Adafruit_PWMServoDriver::Adafruit_PWMServoDriver(TwoWire *i2c, uint8_t addr) {
+Adafruit_PWMServoDriver::Adafruit_PWMServoDriver(uint8_t addr, TwoWire *i2c) {
   _i2c = i2c;
   _i2caddr = addr;
 }
@@ -155,6 +155,31 @@ void Adafruit_PWMServoDriver::setPWMFreq(float freq) {
 #ifdef ENABLE_DEBUG_OUTPUT
   Serial.print("Mode now 0x");
   Serial.println(read8(PCA9685_MODE1), HEX);
+#endif
+}
+
+/*!
+ *  @brief  Sets the output mode of the PCA9685 to either 
+ *  open drain or push pull / totempole. 
+ *  Warning: LEDs with integrated zener diodes should
+ *  only be driven in open drain mode. 
+ *  @param  totempole Totempole if true, open drain if false. 
+ */
+void Adafruit_PWMServoDriver::setOutputMode(bool totempole) {  
+  uint8_t oldmode = read8(PCA9685_MODE2); 
+  uint8_t newmode;
+  if (totempole) {
+    newmode = (oldmode&0x7F) | 0x04;
+  }
+  else {
+    newmode = (oldmode&0x7F) & ~0x04;
+  }
+  write8(PCA9685_MODE2, newmode); 
+#ifdef ENABLE_DEBUG_OUTPUT
+  Serial.print("Setting output mode: ");
+  Serial.print(totempole ? "totempole" : "open drain");
+  Serial.print(" by setting MODE2 to ");
+  Serial.println(newmode);
 #endif
 }
 
