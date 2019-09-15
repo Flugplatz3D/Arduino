@@ -35,7 +35,7 @@ void loop() {
       rpm = 60 * (1.0 / ((float)suma / 1000.0));
       Serial.print(timeRestaEMA);
       Serial.print(" - ");
-      Serial.println(rpm, 2);
+      Serial.println(rpm, 1);
       reads = 1;
       suma = 0;
     }
