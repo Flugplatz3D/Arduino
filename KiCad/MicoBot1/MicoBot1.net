@@ -1,8 +1,8 @@
 (export (version D)
   (design
     (source C:\Micros\MicoBot\KiCad\MicoBot1\MicoBot1.sch)
-    (date "07/09/2019 18:54:00")
-    (tool "Eeschema (5.1.2)-2")
+    (date "25/09/2019 21:37:10")
+    (tool "Eeschema (5.1.4)-1")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
         (title)
