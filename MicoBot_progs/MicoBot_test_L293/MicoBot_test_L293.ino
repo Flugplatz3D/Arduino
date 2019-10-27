@@ -11,9 +11,11 @@ Motors293 Motores;
 void setup() {
   Motores.Stop();
   pinMode(LED, OUTPUT);
+  digitalWrite(LED, HIGH);
+  delay(500);
   digitalWrite(LED, LOW);
-  delay(2000);
-  for (i = 0; i < 20  ; i++)
+  delay(1500);
+  for (i = 0; i < 10  ; i++)
   {
     Flash();
   }
@@ -110,7 +112,7 @@ void loop() {
 void Flash()
 {
   digitalWrite(LED, HIGH);
-  delay(25);
+  delay(50);
   digitalWrite(LED, LOW);
   delay(100);
 }
