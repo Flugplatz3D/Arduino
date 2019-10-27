@@ -6,10 +6,10 @@ void setup() {
 }
 
 void loop() {
-  int SensorValue = analogRead(7);
+  int SensorValue = analogRead(0);
   Serial.print("Contador.i->");
   Serial.print(i, DEC);
-  Serial.print("...Bateria.AN7->");
+  Serial.print("...Bateria.AN0->");
   Serial.println(SensorValue, DEC);
   i++;
   //digitalWrite(13, HIGH);   // set the LED on
