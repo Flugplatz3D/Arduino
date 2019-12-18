@@ -22,6 +22,6 @@ void loop() {
   Serial.print(sensorFront);
   Serial.print(" D ");
   Serial.println(sensorRight);
-  //delay(200);
+  delay(200);
   digitalWrite(ledPin, !digitalRead(ledPin));
 }
