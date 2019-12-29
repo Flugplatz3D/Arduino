@@ -1,6 +1,6 @@
 int sensorPinLeft = A0;
-int sensorPinFront = A2;
-int sensorPinRight = A4;
+int sensorPinFront = A1;
+int sensorPinRight = A2;
 int sensorLeft = 0;
 int sensorFront = 0;
 int sensorRight = 0;
@@ -12,16 +12,15 @@ void setup() {
 }
 
 void loop() {
-  sensorLeft = analogRead(sensorPinLeft);
-  sensorFront = analogRead(sensorPinFront);
-  sensorRight = analogRead(sensorPinRight);
-  //outputValue = map(sensorValue, 0, 1023, 0, 255);
   Serial.print("I ");
+  sensorLeft = analogRead(sensorPinLeft);
   Serial.print(sensorLeft);
   Serial.print(" F ");
+  sensorFront = analogRead(sensorPinFront);
   Serial.print(sensorFront);
   Serial.print(" D ");
+  sensorRight = analogRead(sensorPinRight);
   Serial.println(sensorRight);
-  //delay(200);
+  delay(50);
   digitalWrite(ledPin, !digitalRead(ledPin));
 }
