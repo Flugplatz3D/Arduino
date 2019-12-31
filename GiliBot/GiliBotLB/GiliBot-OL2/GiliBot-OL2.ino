@@ -23,13 +23,15 @@ void setup() {
   oled.setFont(System5x7);
   oled.clear();
   oled.set2X();
-  oled.println("Test");
-  oled.println("SH1106");
+  oled.println("GiliBot4");
+  oled.println("MicroMouse");
   oled.set1X();
   oled.println("");
-  oled.print("SSD1306Ascii lib");
-  delay(4000);
+  oled.println("SSD1306Ascii lib");
+  oled.println("MVC-201912");
+  delay(3000);
   oled.clear();
+  oled.set2X();
 }
 
 void loop() {
@@ -38,23 +40,24 @@ void loop() {
   sensorRight = analogRead(sensorPinRight);
   oled.setRow(0);
   oled.setCol(0);
-  oled.print("R - ");
+  oled.print("R-");
   oled.setRow(0);
-  oled.setCol(24);
+  oled.setCol(32);
   oled.print(sensorRight);
   oled.clearToEOL();
-  oled.setRow(1);
+  oled.setRow(2);
   oled.setCol(0);
-  oled.print("F - ");
-  oled.setRow(1);
-  oled.setCol(24);
+  oled.print("F-");
+  oled.setRow(2);
+  oled.setCol(32);
   oled.print(sensorFront);
   oled.clearToEOL();
-  oled.setRow(2);
+  oled.setRow(4);
   oled.setCol(0);
-  oled.print("L - ");
-  oled.setRow(2);
-  oled.setCol(24);
+  oled.print("L-");
+  oled.setRow(4);
+  oled.setCol(32);
   oled.print(sensorLeft);
   oled.clearToEOL();
+//  delay(20);
 }
