@@ -5,3 +5,5 @@ https://raw.githubusercontent.com/sparkfun/Arduino_Boards/master/IDE_Board_Manag
 https://mcudude.github.io/MiniCore/package_MCUdude_MiniCore_index.json
 
 https://raw.githubusercontent.com/carlosefr/atmega/master/package_carlosefr_atmega_index.json
+
+https://raw.githubusercontent.com/damellis/attiny/ide-1.6.x-boards-manager/package_damellis_attiny_index.json
