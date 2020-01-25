@@ -11,8 +11,8 @@ void loop() {
   boton = digitalRead(buttonPin);
   if (boton == 0)
   {
-      delay(100);
-	  boton = digitalRead(buttonPin);
+    delay(100);
+    boton = digitalRead(buttonPin);
     if (!pulsado)
     {
       pulsado = true;
