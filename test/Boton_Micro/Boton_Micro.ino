@@ -1,6 +1,5 @@
-const int buttonPin = 10;
+const int buttonPin = 7;
 int boton = 0;
-bool pulsado = false;
 
 void setup() {
   Serial.begin(9600);
@@ -12,17 +11,10 @@ void loop() {
   if (boton == 0)
   {
     delay(100);
-    boton = digitalRead(buttonPin);
-    if (!pulsado)
-    {
-      pulsado = true;
-      Serial.print(millis());
-      Serial.println(" - pulsado");
-      delay(200);
-    }
-  }
-  else
-  {
-    pulsado = false;
+    Serial.print(millis());
+    Serial.println(" - pulsado");
+    delay(5000);
+    Serial.print(millis());
+    Serial.println(" - fin");
   }
 }
