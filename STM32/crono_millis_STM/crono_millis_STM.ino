@@ -9,8 +9,8 @@ unsigned long time1 = 0;
 unsigned long time2 = 0;
 String inString = "";
 
-//#define LED PB1
-#define LED PC13
+#define LED PB1
+//#define LED PC13
 
 void setup() {
   Serial.begin(9600);
