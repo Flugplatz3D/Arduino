@@ -58,6 +58,7 @@ void loop() {
     delay(8000);
     oled.clear();
   }
+  //Flash sin delay
   if (millis() - timeFlash > 5000)
   {
     digitalWrite(LED, LOW );
