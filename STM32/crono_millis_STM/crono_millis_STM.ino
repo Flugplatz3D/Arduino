@@ -8,6 +8,7 @@ unsigned long minutot = 0;
 unsigned long time1 = 0;
 unsigned long time2 = 0;
 String inString = "";
+unsigned long timeFlash = 0;
 
 #define LED PB1
 //#define LED PC13
@@ -15,6 +16,7 @@ String inString = "";
 void setup() {
   Serial.begin(9600);
   pinMode(LED, OUTPUT);
+  timeFlash = millis();
 }
 
 void loop() {
@@ -33,6 +35,12 @@ void loop() {
   inString += ":";
   inString += segundot;
   Serial.println(inString);
-  delay(150);
-  digitalWrite(LED, !digitalRead(LED));
+  //Flash sin delay
+  if (millis() - timeFlash > 1000)
+  {
+    digitalWrite(LED, HIGH );
+    delay(2);
+    digitalWrite(LED, LOW );
+    timeFlash = millis();
+  }
 }
