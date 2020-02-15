@@ -37,7 +37,7 @@ void loop () {
   //delay(50);
   Serial.println(cuenta);
   //Flash sin delay
-  if (millis() - timeFlash > 1000)
+  if (millis() - timeFlash > 2000)
   {
     digitalWrite(LED, HIGH );
     delay(2);
