@@ -9,11 +9,10 @@ unsigned long parcial = 0;
 
 FSM stateMachine = FSM(noop); //initialize state machine, start in state: noop
 
-#define LED PB1
+//#define LED PB1
 //#define LED PC13
-//#define LED PC14
-//#define LED 13
-//#define LED 2d the button 4 times
+#define LED 13
+
 void setup() {
   Serial.begin(9600);
   pinMode(LED, OUTPUT);
