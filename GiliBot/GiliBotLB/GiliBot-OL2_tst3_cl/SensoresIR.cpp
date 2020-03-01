@@ -1,16 +1,16 @@
-#include "Motors293.h"
+#include "SensoresIR.h"
 
-Motors293::Motors293()
+SensoresIR::SensoresIR()
 {
-  pinMode (AIN1, OUTPUT);
-  pinMode (AIN2, OUTPUT);
-  pinMode (PWMA, OUTPUT);
-  pinMode (BIN1, OUTPUT);
-  pinMode (BIN2, OUTPUT);
-  pinMode (PWMB, OUTPUT);
+  //Constructor
 }
-void Motors293::Move (int vLeft, int vRight)
+
+void ReadABS(int vLeft, int vFront, int vRight)
 {
+}
+
+/*void Motors293::Move (int vLeft, int vRight)
+  {
   _vLeftSet = constrain(vLeft, -255, 255);
   _vRightSet = constrain(vRight, -255, 255);
   if (_vLeftSet > 0)
@@ -40,49 +40,44 @@ void Motors293::Move (int vLeft, int vRight)
     StopRight();
     analogWrite (PWMA, 0);
   }
-}
-void Motors293::FrontLeft()
-{
+  }
+  void Motors293::FrontLeft()
+  {
   digitalWrite(BIN1, LOW);
   digitalWrite(BIN2, HIGH);
-}
-void Motors293::FrontRight()
-{
+  }
+  void Motors293::FrontRight()
+  {
   digitalWrite(AIN1, LOW);
   digitalWrite(AIN2, HIGH);
-}
-void Motors293::ReverseLeft()
-{
+  }
+  void Motors293::ReverseLeft()
+  {
   digitalWrite(BIN1, HIGH);
   digitalWrite(BIN2, LOW);
-}
-void Motors293::ReverseRight()
-{
+  }
+  void Motors293::ReverseRight()
+  {
   digitalWrite(AIN1, HIGH);
   digitalWrite(AIN2, LOW);
-}
-void Motors293::StopLeft()
-{
+  }
+  void Motors293::StopLeft()
+  {
   digitalWrite(BIN1, LOW);
   digitalWrite(BIN2, LOW);
-}
-void Motors293::StopRight()
-{
+  }
+  void Motors293::StopRight()
+  {
   digitalWrite(AIN1, LOW);
   digitalWrite(AIN2, LOW);
-}
-void Motors293::Stop()
-{
+  }
+  void Motors293::Stop()
+  {
   analogWrite (PWMA, 0);
   analogWrite (PWMB, 0);
   digitalWrite(BIN1, LOW);
   digitalWrite(BIN2, LOW);
   digitalWrite(AIN1, LOW);
   digitalWrite(AIN2, LOW);
-  int i = 0;
-  i = patata();
-}
-int Motors293::patata()
-{
-  return 0;
-}
+  }
+*/

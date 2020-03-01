@@ -10,21 +10,21 @@
 
 #ifndef Motors293_h
 #define Motors293_h
-class Motors293 {
+class SensoresIR {
   public:
-    Motors293();
-    void Move(int vLeft, int vRight);
-    void Stop();
+    SensoresIR();
+    //    void Move(int vLeft, int vRight);
+    void ReadABS(int vLeft, int vFront, int vRight);
+    //    void Stop();
 
   private:
     int _vLeftSet;
     int _vRightSet;
-    void FrontLeft();
-    void FrontRight();
-    void ReverseLeft();
-    void ReverseRight();
-    void StopLeft();
-    void StopRight();
-    int patata();
+//    void FrontLeft();
+//    void FrontRight();
+//    void ReverseLeft();
+//    void ReverseRight();
+//    void StopLeft();
+//    void StopRight();
 };
 #endif
