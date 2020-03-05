@@ -1,30 +1,34 @@
 #include <Arduino.h>
 
-//Arduino - pins L293 - ATMega328p
-#define AIN1 11 // 10 // 18
-#define AIN2 12 // 15 // 17
-#define PWMA 10 // 9 // 16
+#define LHist 60
+#define FHist 60
+#define RHist 60
+
 #define BIN1 8 // 2 // 13
 #define BIN2 7 // 7 // 14
 #define PWMB 9 // 1 // 15
 
-#ifndef Motors293_h
-#define Motors293_h
+#ifndef SensoresIR_h
+#define SensoresIR_h
 class SensoresIR {
   public:
     SensoresIR();
-    //    void Move(int vLeft, int vRight);
-    void ReadABS(int vLeft, int vFront, int vRight);
-    //    void Stop();
-
+    // ampersand is byRef operator
+    void ReadABS(int &vLeft, int &vFront, int &vRight);
+    int ReadWalls();
+    
   private:
-    int _vLeftSet;
-    int _vRightSet;
-//    void FrontLeft();
-//    void FrontRight();
-//    void ReverseLeft();
-//    void ReverseRight();
-//    void StopLeft();
-//    void StopRight();
+    int mSensorPinLeft;
+    int mSensorPinFront;
+    int mSensorPinRight;
+    int mLeft;
+    int mFront;
+    int mRight;
+    int mPrevLeft;
+    int mPrevFront;
+    int mPrevRight;
+    int ReadLeft();
+    int ReadFront();
+    int ReadRight();
 };
 #endif

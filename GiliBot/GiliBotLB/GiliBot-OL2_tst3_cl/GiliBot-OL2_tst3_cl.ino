@@ -5,19 +5,16 @@
 
 // 0X3C+SA0 - 0x3C or 0x3D
 #define I2C_ADDRESS 0x3C
-
 SSD1306AsciiWire oled;
 
-int sensorPinLeft = A0;
-int sensorPinFront = A1;
-int sensorPinRight = A2;
-int sensorLeft = 0;
-int sensorFront = 0;
-int sensorRight = 0;
+SensoresIR sensores;
+int vSensorLeft;
+int vSensorFront;
+int vSensorRight;
 int ledPin = 13;
 
 void setup() {
-  //  Serial.begin(9600);
+  pinMode(ledPin, OUTPUT);
   Wire.begin();
   Wire.setClock(400000L);
   oled.begin(&Adafruit128x32, I2C_ADDRESS);
@@ -27,32 +24,39 @@ void setup() {
   oled.println("GiliBot4");
   oled.set1X();
   oled.println("");
-  oled.println("MVC-201912");
+  oled.println("MVC-202003");
+  digitalWrite(ledPin, HIGH);
   delay(3000);
   oled.clear();
+  digitalWrite(ledPin, LOW);
 }
 
 void loop() {
-  sensorLeft = analogRead(sensorPinLeft);
-  sensorFront = analogRead(sensorPinFront);
-  sensorRight = analogRead(sensorPinRight);
+  sensores.ReadABS(vSensorLeft, vSensorFront, vSensorRight);
   oled.setRow(0);
   oled.setCol(0);
   oled.print("    ");
   oled.setRow(0);
   oled.setCol(0);
-  oled.print(sensorLeft);
+  oled.print(vSensorLeft);
   oled.setRow(0);
   oled.setCol(32);
   oled.print("    ");
   oled.setRow(0);
   oled.setCol(32);
-  oled.print(sensorFront);
+  oled.print(vSensorFront);
   oled.setRow(0);
   oled.setCol(64);
   oled.print("    ");
   oled.setRow(0);
   oled.setCol(64);
-  oled.print(sensorRight);
-  delay(20);
+  oled.print(vSensorRight);
+  oled.setRow(3);
+  oled.setCol(0);
+  oled.print("    ");
+  oled.setRow(3);
+  oled.setCol(0);
+  oled.print(sensores.ReadWalls());
+  delay(50);
+  //  digitalWrite(ledPin, !digitalRead(ledPin));
 }
