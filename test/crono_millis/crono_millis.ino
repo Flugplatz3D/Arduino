@@ -30,14 +30,6 @@ void loop() {
   inString += ":";
   inString += segundot;
   Serial.println(inString);
-<<<<<<< .mine
-  delay(500);
-  digitalWrite(13, !digitalRead(13));
-||||||| .r262
-  delay(100);
-  digitalWrite(13, !digitalRead(13));
-=======
   delay(200);
   digitalWrite(17, !digitalRead(17));
->>>>>>> .r315
 }

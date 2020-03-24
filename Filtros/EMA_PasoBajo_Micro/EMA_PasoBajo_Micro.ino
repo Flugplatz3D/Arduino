@@ -29,7 +29,7 @@ void loop()
   {
     digitalWrite(ledPin, HIGH);
   }
-  delay(25);
+//  delay(25);
 }
 
 int EMALowPassFilter(int value)
