@@ -4,7 +4,7 @@ Servo myservo;  //creamos un objeto servo
 
 void setup()
 {
-  myservo.attach(13);
+  myservo.attach(2);
 }
 
 void loop()
