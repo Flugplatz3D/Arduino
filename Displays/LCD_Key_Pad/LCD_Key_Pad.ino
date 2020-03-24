@@ -46,13 +46,14 @@ void setup()
 
 void loop()
 {
-  lcd.setCursor(9, 0);           // move cursor to second line "1" and 9 spaces over
-  lcd.print(millis() / 1000);    // display seconds elapsed since power-up
+  lcd.setCursor(8, 0);           // move cursor to second line "1" and 9 spaces over
+  //  lcd.print(millis() / 1000);    // display seconds elapsed since power-up
+  lcd.print(millis() / 100);
 
   //  lcd.setCursor(9, 1);
   //  lcd.print("    ");
 
-  lcd.setCursor(9, 1);
+  lcd.setCursor(8, 1);
   lcd.print(adc_key_in);
   lcd.print("   ");
 
