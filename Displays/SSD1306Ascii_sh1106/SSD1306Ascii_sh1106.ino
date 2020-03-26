@@ -14,18 +14,31 @@ void setup () {
   oled.begin(&Adafruit128x64, I2C_ADDRESS);
   //oled.begin(&SH1106_128x64, I2C_ADDRESS);
   oled.setFont(lcd5x7);
+  //  oled.setFont(Verdana12);
+  //  oled.setFont(lcdnums12x16);
+  //  oled.setFont(Cooper26);
+  //  oled.setFont(Cooper26);
+  //  oled.setFont(Cooper26);
   oled.clear();
-  oled.print("Test SH1106");
+  oled.setFont(Callibri15);
+  //  oled.print("Test SH1106");
+  //  oled.print("Test");
   delay(3000);
+  oled.setFont(Verdana_digits_24);
   oled.clear();
-  oled.set2X();
+  //  oled.set2X();
 }
 
 void loop () {
+  cuenta++;
   oled.setRow(0);
   oled.setCol(0);
-  cuenta++;
   oled.print(cuenta);
-  oled.clearToEOL();
+  //  oled.print("-C");
+  //  oled.clearToEOL();
+  oled.setRow(4);
+  oled.setCol(0);
+  oled.print(cuenta);
+  //  oled.clearToEOL();
   //delay(50);
 }
