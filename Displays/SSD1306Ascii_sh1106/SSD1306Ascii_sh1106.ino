@@ -30,16 +30,16 @@ void setup () {
 }
 
 void loop () {
-  cuenta++;
+//  cuenta++;
   oled.setFont(Adafruit5x7);
   oled.setRow(0);
   oled.setCol(0);
-  oled.print(cuenta);
+  oled.print(millis());
   oled.clearToEOL();
   oled.setFont(lcdnums14x24);
   oled.setRow(4);
   oled.setCol(0);
-  oled.print(cuenta / 10);
+  oled.print(millis() / 1000);
 //  oled.print(":");
 //  oled.print("0");
   oled.clearToEOL();
