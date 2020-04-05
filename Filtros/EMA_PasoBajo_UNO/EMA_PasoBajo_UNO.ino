@@ -21,7 +21,7 @@ void loop()
   Serial.print(sensorValue);
   Serial.print(",");
   Serial.println(sensorValueF);
-  if (sensorValueF < 700)
+  if (sensorValueF < 650)
   {
     digitalWrite(ledPin, HIGH);
   }
