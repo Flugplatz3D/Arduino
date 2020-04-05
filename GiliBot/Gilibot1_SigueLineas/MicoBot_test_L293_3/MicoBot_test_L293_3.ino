@@ -1,7 +1,7 @@
 #include "Motors293.h"
 
-#define FADE 15
-#define PAUSA 750
+#define FADE 3
+#define PAUSA 250
 #define LED 13
 
 int i = 0;
