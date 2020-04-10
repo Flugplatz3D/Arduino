@@ -9,11 +9,13 @@ unsigned long time1 = 0;
 unsigned long time2 = 0;
 String inString = "";
 
-#define Led 13
+#define LedPlaca 17
+#define Led 7
 
 void setup() {
   Serial.begin(9600);
   pinMode(Led, OUTPUT);
+  pinMode(LedPlaca, OUTPUT);
 }
 
 void loop() {
@@ -32,6 +34,6 @@ void loop() {
   inString += ":";
   inString += segundot;
   Serial.println(inString);
-  delay(100);
+  delay(250);
   digitalWrite(Led, !digitalRead(Led));
 }
