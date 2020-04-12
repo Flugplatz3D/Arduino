@@ -10,7 +10,7 @@ unsigned long time2 = 0;
 String inString = "";
 
 #define LedPlaca 13
-#define Led 7
+#define Led 2
 
 void setup() {
   Serial.begin(9600);
