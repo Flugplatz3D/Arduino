@@ -1,27 +1,22 @@
-/*
-  Blink
-  Turns on an LED on for one second, then off for one second, repeatedly.
-
-  This example code is in the public domain.
-*/
+#define Led PB1 //PC13
 
 void setup() {
   // initialize the digital pin as an output.
   // Pin 13 has an LED connected on most Arduino boards:
-  pinMode(PC13, OUTPUT);
+  pinMode(Led, OUTPUT);
 }
 
 void loop() {
-  digitalWrite(PC13, LOW);
+  digitalWrite(Led, HIGH);
   delay(100);
-  digitalWrite(PC13, HIGH);
+  digitalWrite(Led, LOW);
   delay(100);
-  digitalWrite(PC13, LOW);
+  digitalWrite(Led, HIGH);
   delay(100);
-  digitalWrite(PC13, HIGH);
+  digitalWrite(Led, LOW);
   delay(100);
-  digitalWrite(PC13, LOW);
+  digitalWrite(Led, HIGH);
   delay(100);
-  digitalWrite(PC13, HIGH);
+  digitalWrite(Led, LOW);
   delay(1000);
 }
