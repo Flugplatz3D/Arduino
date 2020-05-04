@@ -43,5 +43,5 @@ void loop () {
 //  oled.print(":");
 //  oled.print("0");
   oled.clearToEOL();
-  delay(100);
+//  delay(100);
 }

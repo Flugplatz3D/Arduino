@@ -15,6 +15,6 @@ void setup() {
 }
 
 void loop() {
-  tm1637.showNumberDec(millis()/1000, true);
+  tm1637.showNumberDec(millis()/250, true);
   Serial.println(millis());
 }
