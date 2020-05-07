@@ -1,24 +1,22 @@
 /*
-SBUS.h
-Brian R Taylor
-brian.taylor@bolderflight.com
+	SBUS.h
+	Brian R Taylor
+	brian.taylor@bolderflight.com
 
-Copyright (c) 2016 Bolder Flight Systems
+	Copyright (c) 2016 Bolder Flight Systems
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software 
-and associated documentation files (the "Software"), to deal in the Software without restriction, 
-including without limitation the rights to use, copy, modify, merge, publish, distribute, 
-sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is 
-furnished to do so, subject to the following conditions:
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
 
-The above copyright notice and this permission notice shall be included in all copies or 
-substantial portions of the Software.
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING 
-BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND 
-NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, 
-DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
 #ifndef SBUS_h
@@ -27,14 +25,15 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SO
 #include "Arduino.h"
 #include "elapsedMillis.h"
 
-/* 
+/*
 * Hardware Serial Supported:
-* Teensy 3.0 || Teensy 3.1/3.2 || Teensy 3.5 || Teensy 3.6 || Teensy LC  || STM32L4 || Maple Mini
+* Teensy 3.0 || Teensy 3.1/3.2 || Teensy 3.5 || Teensy 3.6 || Teensy LC  || STM32L4 || Maple Mini || Arduino Mega 2560 || ESP32
 */
 #if defined(__MK20DX128__) 	|| defined(__MK20DX256__) || defined(__MK64FX512__)	\
-	|| defined(__MK66FX1M0__) || defined(__MKL26Z64__) 	|| defined(STM32L496xx)		\
-	|| defined(STM32L476xx) 	|| defined(STM32L433xx) 	|| defined(STM32L432xx)		\
-	|| defined(_BOARD_MAPLE_MINI_H_)
+	|| defined(__MK66FX1M0__) || defined(__MKL26Z64__) 	|| defined(__IMXRT1052__) \
+	|| defined(STM32L496xx)		|| defined(STM32L476xx) 	|| defined(STM32L433xx) \
+	|| defined(STM32L432xx)		|| defined(_BOARD_MAPLE_MINI_H_) \
+	|| defined(__AVR_ATmega2560__) || defined(ESP32)
 #endif
 
 class SBUS{
@@ -62,7 +61,7 @@ class SBUS{
 		const uint32_t SBUS_TIMEOUT_US = 7000;
 		uint8_t _parserState, _prevByte = _sbusFooter, _curByte;
 		static const uint8_t _payloadSize = 24;
-		uint8_t _payload[_payloadSize];		
+		uint8_t _payload[_payloadSize];
 		const uint8_t _sbusLostFrame = 0x04;
 		const uint8_t _sbusFailSafe = 0x08;
 		const uint16_t _defaultMin = 172;

@@ -1,5 +1,20 @@
 # SBUS
-Arduino library for communicating with SBUS receivers and servos. SBUS uses inverted serial logic with a baud rate of 100000, 8 data bits, even parity bit, and 2 stop bits. This library works with Teensy 3.x and LC devices, the [STM32L4](https://github.com/simondlevy/grumpyoldpizza), and the Maple Mini. If you have other Arduino devices or port this library, I would appreciate pull requests to update this to work with as many devices as possible.
+Arduino library for communicating with SBUS receivers and servos. SBUS uses inverted serial logic with a baud rate of 100000, 8 data bits, even parity bit, and 2 stop bits. This library works with Teensy 3.x and LC devices, the [STM32L4](https://github.com/simondlevy/grumpyoldpizza), the Maple Mini, and ESP32 (see below). If you have other Arduino devices or port this library, I would appreciate pull requests to update this to work with as many devices as possible.
+
+# License
+This library is licensed under the GPLV3. Please contact us at [support@bolderflight.com](mailto:support@bolderflight.com) to obtain other licenses.
+
+## Using SBUS on ESP32
+ESP32 may need a logic level converter from 5V to 3.3V.
+
+Additionally, to use uninverted sbus FrSky signal pin, please refer to [Oscar Liang's post](https://oscarliang.com/uninverted-sbus-smart-port-frsky-receivers/).
+
+## Using SBUS on Arduino Mega 2560
+Since SBUS uses inverted serial logic, you need to connect the receivers and servors through a signal inverter circuit as explained [here](https://dev.px4.io/en/tutorials/linux_sbus.html). Basically, you need to use an NPN transistor with the following connections:
+* connect SBUS signal to the base of the NPN transistor through a 1K resistor
+* connect GND of the Arduino board to the emitter of the transistor
+* connect Arduino operating voltage (5V for Mega 2560) to the collector of the transistor through a 10K resistor
+* connect RX port of the used Arduino serial port to the collector of the transistor
 
 # Description
 SBUS is a protocol for RC receivers to send commands to servos. Unlike PWM, SBUS uses a bus architecture where a single signal line can be connected up to 16 servos with each receiving a unique command. SBUS capable servos are required; each can be programmed with a unique address (Channel 0 - 15) using an SBUS servo programmer. Advantages of SBUS include the reduction of wiring clutter and ease of parsing commands from RC receivers.
@@ -17,7 +32,7 @@ The SBUS protocol uses inverted serial logic with a baud rate of 100000, 8 data 
    * Bit 0 - 3: n/a
 * Byte[24]: SBUS End Byte, 0x00
 
-A table mapping bytes[1-22] to servo channels is [included](https://github.com/bolderflight/SBUS/blob/master/docs/bit-mapping.pdf).
+A table mapping bytes[1-22] to servo channels is [included](https://github.com/bolderflight/SBUS/blob/master/extras/bit-mapping.pdf).
 
 This library has two basic modes of functionality:
 
