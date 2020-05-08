@@ -5,6 +5,6 @@ void setup() {
 
 void loop() {
   Serial.println(millis());
-  delay(100);
+  delay(150);
   digitalWrite(13, !digitalRead(13));
 }
