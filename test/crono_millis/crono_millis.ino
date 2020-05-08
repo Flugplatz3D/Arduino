@@ -34,7 +34,7 @@ void loop() {
   inString += ":";
   inString += segundot;
   Serial.println(inString);
-  delay(250);
+  delay(300);
   digitalWrite(Led, !digitalRead(Led));
   digitalWrite(LedPlaca, !digitalRead(LedPlaca));
 }
