@@ -37,27 +37,35 @@
 #define MLX90614_TARANGE 0x23
 #define MLX90614_EMISS 0x24
 #define MLX90614_CONFIG 0x25
-#define MLX90614_ADDR 0x0E
+#define MLX90614_ADDR 0x2E
 #define MLX90614_ID1 0x3C
 #define MLX90614_ID2 0x3D
 #define MLX90614_ID3 0x3E
 #define MLX90614_ID4 0x3F
 
+/**
+ * @brief Class to read from and control a MLX90614 Temp Sensor
+ *
+ */
 class Adafruit_MLX90614 {
 public:
   Adafruit_MLX90614(uint8_t addr = MLX90614_I2CADDR);
-  boolean begin();
-  uint32_t readID(void);
+  bool begin();
 
   double readObjectTempC(void);
   double readAmbientTempC(void);
   double readObjectTempF(void);
   double readAmbientTempF(void);
+  uint16_t readEmissivityReg(void);
+  void writeEmissivityReg(uint16_t ereg);
+  double readEmissivity(void);
+  void writeEmissivity(double emissivity);
 
 private:
   float readTemp(uint8_t reg);
 
-  uint8_t _addr;
   uint16_t read16(uint8_t addr);
   void write16(uint8_t addr, uint16_t data);
+  byte crc8(byte *addr, byte len);
+  uint8_t _addr;
 };
