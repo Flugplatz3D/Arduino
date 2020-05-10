@@ -6,6 +6,6 @@ void setup() {
   pinMode(LED_TEST, OUTPUT);
 }
 void loop() {
-  digitalWrite(LED_MICRO, !bitRead(millis(), 9));
-  digitalWrite(LED_TEST, bitRead(millis(), 9));
+  digitalWrite(LED_MICRO, !bitRead(millis(), 10));
+  digitalWrite(LED_TEST, bitRead(millis(), 8));
 }
