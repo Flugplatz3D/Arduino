@@ -23,9 +23,9 @@ void loop() {
     Serial.print("Distancia (mm): ");
     Serial.println(measure.RangeMilliMeter);
   }
-  else
-  {
-    Serial.println("  Fuera de rango ");
-  }
+//  else
+//  {
+//    Serial.println("  Fuera de rango ");
+//  }
   delay(100);
 }
