@@ -1,13 +1,13 @@
 #include "Motors293.h"
 
-//#define VelicidadFL  70
-//#define VelicidadFR  70
-//#define VelicidadRL  -70
-//#define VelicidadRR  -70
-#define VelicidadFL  170
-#define VelicidadFR  170
-#define VelicidadRL  -170
-#define VelicidadRR  -170
+#define VelicidadFL  70
+#define VelicidadFR  75
+#define VelicidadRL  -70
+#define VelicidadRR  -70
+//#define VelicidadFL  170
+//#define VelicidadFR  170
+//#define VelicidadRL  -170
+//#define VelicidadRR  -170
 
 float EMA_ALPHA = 0.5;
 int EMA_LP = 0;
@@ -21,8 +21,9 @@ int rawMeasure = 0;
 Motors293 Motores;
 
 void setup() {
-  Motores.Stop();
   pinMode(ledPin, OUTPUT);
+  digitalWrite(ledPin, HIGH);
+  Motores.Stop();
   delay(2000);
   for (int i = 0; i < 10  ; i++)
   {
