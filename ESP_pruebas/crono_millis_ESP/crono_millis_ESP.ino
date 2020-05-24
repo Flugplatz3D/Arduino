@@ -32,6 +32,6 @@ void loop() {
   inString += ":";
   inString += segundot;
   Serial.println(inString);
-  delay(250);
-  digitalWrite(LED_BUILTIN, bitRead(millis(),9));
+  //  delay(250);
+  digitalWrite(LED_BUILTIN, bitRead(millis(), 10));
 }
