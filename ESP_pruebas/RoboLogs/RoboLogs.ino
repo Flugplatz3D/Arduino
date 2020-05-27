@@ -3,10 +3,10 @@
 #define LED_BUILTIN 2
 
 //Nombre de la red
-const char* nombre = "JAZZTEL_b4J6";
+const char* nombre = "*******";
 
 //Password
-const char* password = "bejjmnwkyubc";
+const char* password = "********";
 
 //Puerto (dejar en 80 por defecto)
 WiFiServer server(80);
