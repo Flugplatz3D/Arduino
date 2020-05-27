@@ -4,7 +4,7 @@
 #define LED_BUILTIN 2
 
 // Configuración de la WiFi generada
-const char *ssid = "MVC_AP";
+const char *ssid = "Test_AP";
 const char *password = "pa55word";
 
 ESP8266WebServer server(80);
