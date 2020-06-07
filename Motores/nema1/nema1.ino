@@ -2,8 +2,8 @@
 #define stepPin 3
 #define dirPin 4
 
-const int steps = 2000;
-int pulso = 900;
+const int steps = 800;
+int pulso = 1500;
 
 void setup() {
   pinMode(dirPin, OUTPUT);
