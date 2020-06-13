@@ -5,7 +5,7 @@
 #define stepPinY 3
 #define dirPinY 6
 
-const int steps = 400;
+const int steps = 200;
 int pulso = 1500;
 
 void setup() {
@@ -17,6 +17,7 @@ void setup() {
   digitalWrite(enPin, HIGH);
   delay(4000);
   digitalWrite(enPin, LOW);
+  delay(250);
 }
 
 void loop() {
@@ -29,9 +30,7 @@ void loop() {
     digitalWrite(LedPlaca, LOW);
     delayMicroseconds(pulso);
   }
-  digitalWrite(enPin, HIGH);
-  delay(2000);
-  digitalWrite(enPin, LOW);
+  delay(1000);
   digitalWrite(dirPinX, LOW);
   for (int x = 0; x < steps ; x++) {
     digitalWrite(stepPinX, HIGH);
@@ -41,10 +40,8 @@ void loop() {
     digitalWrite(LedPlaca, LOW);
     delayMicroseconds(pulso);
   }
-  digitalWrite(enPin, HIGH);
-  delay(2000);
-  digitalWrite(enPin, LOW);
-  
+  delay(1000);
+
   digitalWrite(dirPinY, HIGH);
   for (int x = 0; x < steps ; x++) {
     digitalWrite(stepPinY, HIGH);
@@ -54,9 +51,7 @@ void loop() {
     digitalWrite(LedPlaca, LOW);
     delayMicroseconds(pulso);
   }
-  digitalWrite(enPin, HIGH);
-  delay(2000);
-  digitalWrite(enPin, LOW);
+  delay(1000);
   digitalWrite(dirPinY, LOW);
   for (int x = 0; x < steps ; x++) {
     digitalWrite(stepPinY, HIGH);
@@ -66,38 +61,35 @@ void loop() {
     digitalWrite(LedPlaca, LOW);
     delayMicroseconds(pulso);
   }
-  digitalWrite(enPin, HIGH);
-  delay(2000);
-  digitalWrite(enPin, LOW);
-  
+  delay(1000);
+
   digitalWrite(dirPinX, HIGH);
   digitalWrite(dirPinY, HIGH);
   for (int x = 0; x < steps ; x++) {
     digitalWrite(stepPinX, HIGH);
-	digitalWrite(stepPinY, HIGH);
+    digitalWrite(stepPinY, HIGH);
     digitalWrite(LedPlaca, HIGH);
     delayMicroseconds(pulso);
     digitalWrite(stepPinX, LOW);
-	digitalWrite(stepPinY, LOW);
+    digitalWrite(stepPinY, LOW);
     digitalWrite(LedPlaca, LOW);
     delayMicroseconds(pulso);
   }
-  digitalWrite(enPin, HIGH);
-  delay(2000);
-  digitalWrite(enPin, LOW);
+  delay(1000);
   digitalWrite(dirPinX, LOW);
   digitalWrite(dirPinY, LOW);
   for (int x = 0; x < steps ; x++) {
     digitalWrite(stepPinX, HIGH);
-	digitalWrite(stepPinY, HIGH);
+    digitalWrite(stepPinY, HIGH);
     digitalWrite(LedPlaca, HIGH);
     delayMicroseconds(pulso);
-	digitalWrite(stepPinX, LOW);
+    digitalWrite(stepPinX, LOW);
     digitalWrite(stepPinY, LOW);
     digitalWrite(LedPlaca, LOW);
     delayMicroseconds(pulso);
   }
   digitalWrite(enPin, HIGH);
-  delay(2000);
+  delay(5000);
   digitalWrite(enPin, LOW);
+  delay(250);
 }
