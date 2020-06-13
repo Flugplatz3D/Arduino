@@ -36,11 +36,13 @@ void loop() {
   inString += segundot;
   Serial.println(inString);
   //Flash sin delay
-  if (millis() - timeFlash > 1000)
-  {
-    digitalWrite(LED, HIGH );
-    delay(2);
-    digitalWrite(LED, LOW );
-    timeFlash = millis();
-  }
+  //  if (millis() - timeFlash > 1000)
+  //  {
+  //    digitalWrite(LED, HIGH );
+  //    delay(2);
+  //    digitalWrite(LED, LOW );
+  //    timeFlash = millis();
+  //  }
+  delay(150);
+  digitalWrite(LED, !digitalRead(LED));
 }
