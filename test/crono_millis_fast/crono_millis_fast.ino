@@ -2,11 +2,11 @@
 
 void setup() {
   Serial.begin(9600);
-  pinMode(13, OUTPUT);
+  pinMode(LED, OUTPUT);
 }
 
 void loop() {
   Serial.println(millis());
-  delay(150);
-  digitalWrite(LED, bitRead(millis(), 9));
+  delay(200);
+  digitalWrite(LED, bitRead(millis(), 10));
 }
