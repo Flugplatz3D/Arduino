@@ -2,8 +2,8 @@
 #define stepPin 12
 #define LedMini 13
 
-const int steps = 200;
-int pulso = 1500;
+const int steps = 400;
+int pulso = 1000;
 
 void setup() {
   pinMode(dirPin, OUTPUT);
