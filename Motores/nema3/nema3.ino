@@ -1,7 +1,7 @@
 /*
 Example sketch to control a stepper motor with A4988 stepper motor driver,
 AccelStepper library and Arduino: acceleration and deceleration.
-More info: https://www.makerguides.com/a4988-stepper-motor-driver-arduino-tutorial/
+https://www.makerguides.com/a4988-stepper-motor-driver-arduino-tutorial/
 */
 
 // Include the AccelStepper library:
