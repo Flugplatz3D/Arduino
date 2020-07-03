@@ -20,34 +20,63 @@ void setup() {
 }
 
 void loop() {
-  digitalWrite(dirPinRight, LOW);
-  digitalWrite(dirPinLeft, HIGH);
-  for (int x = 0; x < steps ; x++) {
-    digitalWrite(stepPinRight, HIGH);
-    digitalWrite(stepPinLeft, HIGH);
-    digitalWrite(LedMini, HIGH);
-    delayMicroseconds(pulso);
-    digitalWrite(stepPinLeft, LOW);
-    digitalWrite(stepPinRight, LOW);
-    digitalWrite(LedMini, LOW);
-    delayMicroseconds(pulso);
-  }
-  delay(1000);
-  digitalWrite(dirPinRight, HIGH);
-  digitalWrite(dirPinLeft, LOW);
-  for (int x = 0; x < steps ; x++) {
-    digitalWrite(stepPinRight, HIGH);
-    digitalWrite(stepPinLeft, HIGH);
-    digitalWrite(LedMini, HIGH);
-    delayMicroseconds(pulso);
-    digitalWrite(stepPinLeft, LOW);
-    digitalWrite(stepPinRight, LOW);
-    digitalWrite(LedMini, LOW);
-    delayMicroseconds(pulso);
-  }
-  delay(1000);
+  avanza(3200, 100);
+  delay(1500);
+  derecha(2925, 100);
+  delay(1500);
+  avanza(3200, 100);
+  delay(1500);
+  derecha(2925, 100);
+  delay(1500);
 }
 
+void avanza (int pasos, int velocidad)
+{
+  digitalWrite(dirPinRight, LOW);
+  digitalWrite(dirPinLeft, HIGH);
+  for (int x = 0; x < pasos ; x++) {
+    digitalWrite(stepPinRight, HIGH);
+    digitalWrite(stepPinLeft, HIGH);
+    digitalWrite(LedMini, HIGH);
+    delayMicroseconds(pulso);
+    digitalWrite(stepPinLeft, LOW);
+    digitalWrite(stepPinRight, LOW);
+    digitalWrite(LedMini, LOW);
+    delayMicroseconds(pulso);
+  }
+}
+
+void derecha (int pasos, int velocidad)
+{
+  digitalWrite(dirPinRight, HIGH);
+  digitalWrite(dirPinLeft, HIGH);
+  for (int x = 0; x < pasos ; x++) {
+    digitalWrite(stepPinRight, HIGH);
+    digitalWrite(stepPinLeft, HIGH);
+    digitalWrite(LedMini, HIGH);
+    delayMicroseconds(pulso);
+    digitalWrite(stepPinLeft, LOW);
+    digitalWrite(stepPinRight, LOW);
+    digitalWrite(LedMini, LOW);
+    delayMicroseconds(pulso);
+  }
+}
+
+void izquierda (int pasos, int velocidad)
+{
+  digitalWrite(dirPinRight, LOW);
+  digitalWrite(dirPinLeft, LOW);
+  for (int x = 0; x < pasos ; x++) {
+    digitalWrite(stepPinRight, HIGH);
+    digitalWrite(stepPinLeft, HIGH);
+    digitalWrite(LedMini, HIGH);
+    delayMicroseconds(pulso);
+    digitalWrite(stepPinLeft, LOW);
+    digitalWrite(stepPinRight, LOW);
+    digitalWrite(LedMini, LOW);
+    delayMicroseconds(pulso);
+  }
+}
 void Flash()
 {
   for (int i = 0; i < 25  ; i++)
