@@ -11,5 +11,5 @@ void loop()
   //  delay(500);
   //  digitalWrite(ledPin, LOW);
   //  delay(500);
-  digitalWrite(ledPin, bitRead(millis(), 8));
+  digitalWrite(ledPin, bitRead(millis(), 7));
 }
