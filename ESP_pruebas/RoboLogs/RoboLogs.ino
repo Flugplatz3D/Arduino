@@ -3,10 +3,10 @@
 #define LED_BUILTIN 2
 
 //Nombre de la red
-const char* nombre = "*******";
+const char* nombre = "JAZZTEL_b4J6";
 
 //Password
-const char* password = "********";
+const char* password = "bejjmnwkyubc";
 
 //Puerto (dejar en 80 por defecto)
 WiFiServer server(80);
@@ -25,7 +25,7 @@ void setup() {
   while (WiFi.status() != WL_CONNECTED)
   {
     delay(100); //aqui tambien hay que dejar un margen de tiempo
-    digitalWrite(LED_BUILTIN, bitRead(millis(), 5));
+    digitalWrite(LED_BUILTIN, bitRead(millis(), 4));
   }
   
   digitalWrite(LED_BUILTIN, HIGH);
