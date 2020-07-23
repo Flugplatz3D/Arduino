@@ -140,19 +140,19 @@ const int SERVO_RIGHT_FOOT = 4;
 // Servo Max/Min/Centre Constants - Set these for your particular robot.
 //----------------------------------------------------------------------------------
 
-const int LEFT_HIP_CENTRE = 1450;
+const int LEFT_HIP_CENTRE = 1430;
 const int LEFT_HIP_MIN    = LEFT_HIP_CENTRE - 500;
 const int LEFT_HIP_MAX    = LEFT_HIP_CENTRE + 500;
 
-const int LEFT_FOOT_CENTRE = 1540;
+const int LEFT_FOOT_CENTRE = 1570;
 const int LEFT_FOOT_MIN    = LEFT_FOOT_CENTRE - 500;
 const int LEFT_FOOT_MAX    = LEFT_FOOT_CENTRE + 500;
 
-const int RIGHT_HIP_CENTRE = 1485;
+const int RIGHT_HIP_CENTRE = 1500;
 const int RIGHT_HIP_MIN    = RIGHT_HIP_CENTRE - 500;
 const int RIGHT_HIP_MAX    = RIGHT_HIP_CENTRE + 500;
 
-const int RIGHT_FOOT_CENTRE = 1480;
+const int RIGHT_FOOT_CENTRE = 1550;
 const int RIGHT_FOOT_MIN    = RIGHT_FOOT_CENTRE - 500;
 const int RIGHT_FOOT_MAX    = RIGHT_FOOT_CENTRE + 500;
 
@@ -216,7 +216,7 @@ const int RIGHT_FOOT_VALUE = 4;
 
 
 // Constants used in the walking gait animation data.
-const int FOOT_DELTA = 400;
+const int FOOT_DELTA = 250;
 const int HIP_DELTA  = FRONT_JOINT_HIPS * 200;
 
 
