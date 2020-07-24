@@ -12,24 +12,25 @@ void setup()
   pinMode(LED_PIN, OUTPUT);
   Serial.begin(9600);
   irrecv.enableIRIn(); 
-  digitalWrite(LED_PIN, HIGH);
 }
 
 void loop() {
   if (irrecv.decode(&results)) {
-    //Serial.print(results.value, HEX);
-    //Serial.print("    ");
+    Serial.print(results.value, HEX);
+    Serial.print("    ");
     Serial.println(results.value);
     switch (results.value)
     {
       case 16712445:
         {
           Serial.println("parar");
+          digitalWrite(LED_PIN, LOW);
           break;
         }
       case 16736925:
         {
           Serial.println("avanzar");
+          digitalWrite(LED_PIN, HIGH);
           break;
         }
       case 16754775:
