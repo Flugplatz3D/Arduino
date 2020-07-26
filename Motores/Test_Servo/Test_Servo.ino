@@ -13,11 +13,11 @@ void setup()
 void loop()
 {
   digitalWrite(Led, HIGH);
-  myservo.write(83);  // enviamos el valor escalado al servo.
+  myservo.writeMicroseconds(1410);  // enviamos el valor escalado al servo.
   delay(3000);
   digitalWrite(Led, LOW);
-  myservo.write(60);  // enviamos el valor escalado al servo.
+  myservo.writeMicroseconds(950);  // enviamos el valor escalado al servo.
   delay(500);
-  myservo.write(110);  // enviamos el valor escalado al servo.
+  myservo.writeMicroseconds(1900);  // enviamos el valor escalado al servo.
   delay(500);
 }
