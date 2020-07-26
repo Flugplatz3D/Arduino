@@ -6,7 +6,7 @@ Servo myservo;  //creamos un objeto servo
 
 void setup()
 {
-  myservo.attach(2);
+  myservo.attach(5);
   pinMode(Led, OUTPUT);
 }
 
