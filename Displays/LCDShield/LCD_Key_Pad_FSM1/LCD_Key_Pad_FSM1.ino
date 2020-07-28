@@ -1,11 +1,14 @@
 #include <LiquidCrystal.h>
 #include <FiniteStateMachine.h>
 
-State noop = State(noopUpdate);  //no operation
-State chocar = State(chocarEnter, chocarUpdate, NULL);
-State parar = State(pararEnter, pararUpdate, NULL);
+State noop = State(noopUpdate);
+State unoC = State(unoCEnter, unoCUpdate, unoCExit);
+State dosC = State(dosCEnter, dosCUpdate, dosCExit);
+State unoR = State(unoREnter, unoRUpdate, unoRExit);
 
-FSM stateMachine = FSM(chocar);
+unsigned long unoCCount = 0;
+unsigned long dosCCount = 0;
+unsigned long unoRCount = 0;
 
 // select the pins used on the LCD panelEW
 LiquidCrystal lcd(8, 9, 4, 5, 6, 7);
@@ -19,6 +22,20 @@ int adc_key_in  = 0;
 #define btnLEFT   3
 #define btnSELECT 4
 #define btnNONE   5
+
+FSM stateMachine = FSM(noop);
+
+void setup()
+{
+  Serial.begin(9600);
+  lcd.begin(16, 2);              // start the library
+  stateMachine.transitionTo(unoC);
+}
+
+void loop()
+{
+  stateMachine.update();
+}
 
 // read the buttons
 int read_LCD_buttons()
@@ -36,97 +53,76 @@ int read_LCD_buttons()
   return btnNONE;  // when all others fail, return this...
 }
 
-void setup()
-{
-  Serial.begin(9600);
-  lcd.begin(16, 2);              // start the library
-  lcd.setCursor(0, 0);
-  lcd.print("Botones"); // print a simple message
-}
-
-void loop()
-{
-  lcd.setCursor(8, 0);           // move cursor to second line "1" and 9 spaces over
-  //  lcd.print(millis() / 1000);    // display seconds elapsed since power-up
-  lcd.print(millis() / 100);
-
-  //  lcd.setCursor(9, 1);
-  //  lcd.print("    ");
-
-  lcd.setCursor(8, 1);
-  lcd.print(adc_key_in);
-  lcd.print("   ");
-
-  lcd.setCursor(0, 1);           // move to the begining of the second line
-  lcd_key = read_LCD_buttons();  // read the buttons
-
-  switch (lcd_key)               // depending on which button was pushed, we perform an action
-  {
-    case btnRIGHT:
-      {
-        lcd.print("RIGHT ");
-        break;
-      }
-    case btnLEFT:
-      {
-        lcd.print("LEFT   ");
-        break;
-      }
-    case btnUP:
-      {
-        lcd.print("UP    ");
-        break;
-      }
-    case btnDOWN:
-      {
-        lcd.print("DOWN  ");
-        break;
-      }
-    case btnSELECT:
-      {
-        lcd.print("SELECT");
-        break;
-      }
-    case btnNONE:
-      {
-        lcd.print("NONE  ");
-        break;
-      }
-  }
-  stateMachine.update();
-}
-
-//[noop state:update] the state machine is in a state that does nothing
 void noopUpdate() {
   //Serial.println(__FUNCTION__);
 }
 
-void chocarEnter() {
-  Serial.println(__FUNCTION__);
+void unoCEnter() {
+  lcd.setCursor(0, 0);
+  lcd.print("unoC");
+  lcd.setCursor(0, 1);
+  lcd.print(unoCCount);
+  lcd.print("   ");
+  //delay(500);
 }
 
-void chocarUpdate() {
-  Serial.println(__FUNCTION__);
-  //stateMachine.transitionTo(parar);
-}
-void pararEnter() {
-  ////  digitalWrite(LED, HIGH );
-  //  Serial.println(__FUNCTION__);
-  //  tone(9, beep, 100);
-  //  delay(2000);
-  //  tone(9, beep, 100);
-  ////  digitalWrite(LED, LOW );
+void unoCUpdate() {
+  lcd_key = read_LCD_buttons();
+  unoCCount++;
+  if (lcd_key == btnDOWN)
+  {
+    stateMachine.transitionTo(dosC);
+  }
+    if (lcd_key == btnRIGHT)
+  {
+    stateMachine.transitionTo(unoR);
+  }
 }
 
-void pararUpdate() {
-  //  Serial.print(millis());
-  //  Serial.print(" - ");
-  //  Serial.println(__FUNCTION__);
-  //  delay(10);
-  //  digitalWrite(LED, !digitalRead(LED));
-  //  if (millis() - parcial > 10000)
-  //  {
-  //    parcial = millis();
-  //    stateMachine.transitionTo(chocar);
-  //  }
+void unoCExit() {
+  lcd.clear();
+}
+
+void dosCEnter() {
+  lcd.setCursor(0, 0);
+  lcd.print("dosC");
+  lcd.setCursor(0, 1);
+  lcd.print(dosCCount);
+  lcd.print("   ");
+  //delay(500);
+}
+
+void dosCUpdate() {
+  lcd_key = read_LCD_buttons();
+  dosCCount++;
+  if (lcd_key == btnUP)
+  {
+    stateMachine.transitionTo(unoC);
+  }
+}
+
+void dosCExit() {
+  lcd.clear();
+}
+
+void unoREnter() {
+  lcd.setCursor(0, 0);
+  lcd.print("unoR");
+  lcd.setCursor(0, 1);
+  lcd.print(unoRCount);
+  lcd.print("   ");
+  //delay(500);
+}
+
+void unoRUpdate() {
+  lcd_key = read_LCD_buttons();
+  unoRCount++;
+  if (lcd_key == btnLEFT)
+  {
+    stateMachine.transitionTo(unoC);
+  }
+}
+
+void unoRExit() {
+  lcd.clear();
 }
