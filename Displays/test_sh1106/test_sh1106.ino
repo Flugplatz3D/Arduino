@@ -17,6 +17,7 @@ unsigned long horat = 0;
 unsigned long time1 = 0;
 unsigned long time2 = 0;
 String inString = "";
+int i = 0;
 
 void setup()   {
   Serial.begin(9600);
@@ -28,6 +29,7 @@ void setup()   {
   // Clear the buffer.
   display.clearDisplay();
   display.setTextColor(WHITE);
+  display.setTextSize(2);
 }
 
 void loop() {
@@ -50,12 +52,14 @@ void loop() {
   inString += segundot;
   display.setTextSize(2);
   display.setCursor(0, 0);
-  //display.print("SH1106 I2C");
-  //display.setCursor(0, 11);
   display.print(millis());
-  //display.setTextSize(1);
+  display.setTextSize(1);
   display.setCursor(0, 18);
   display.print(inString);
+  //display.setCursor(0, 48);
+  //display.print(i);
+  display.drawPixel(i, 48, WHITE);
+  i++;
+  if (i > 127) i = 0;
   display.display();
-  //delay(50);
 }
