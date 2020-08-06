@@ -30,6 +30,11 @@ void setup()   {
   display.clearDisplay();
   display.setTextColor(WHITE);
   display.setTextSize(2);
+  // draw many lines
+  testdrawline();
+  display.display();
+  delay(2000);
+  display.clearDisplay();
 }
 
 void loop() {
@@ -62,4 +67,49 @@ void loop() {
   i++;
   if (i > 127) i = 0;
   display.display();
+}
+
+void testdrawline() {
+  for (int16_t i = 0; i < display.width(); i += 4) {
+    display.drawLine(0, 0, i, display.height() - 1, WHITE);
+    display.display();
+  }
+  for (int16_t i = 0; i < display.height(); i += 4) {
+    display.drawLine(0, 0, display.width() - 1, i, WHITE);
+    display.display();
+  }
+  delay(250);
+
+  display.clearDisplay();
+  for (int16_t i = 0; i < display.width(); i += 4) {
+    display.drawLine(0, display.height() - 1, i, 0, WHITE);
+    display.display();
+  }
+  for (int16_t i = display.height() - 1; i >= 0; i -= 4) {
+    display.drawLine(0, display.height() - 1, display.width() - 1, i, WHITE);
+    display.display();
+  }
+  delay(250);
+
+  display.clearDisplay();
+  for (int16_t i = display.width() - 1; i >= 0; i -= 4) {
+    display.drawLine(display.width() - 1, display.height() - 1, i, 0, WHITE);
+    display.display();
+  }
+  for (int16_t i = display.height() - 1; i >= 0; i -= 4) {
+    display.drawLine(display.width() - 1, display.height() - 1, 0, i, WHITE);
+    display.display();
+  }
+  delay(250);
+
+  display.clearDisplay();
+  for (int16_t i = 0; i < display.height(); i += 4) {
+    display.drawLine(display.width() - 1, 0, 0, i, WHITE);
+    display.display();
+  }
+  for (int16_t i = 0; i < display.width(); i += 4) {
+    display.drawLine(display.width() - 1, 0, i, display.height() - 1, WHITE);
+    display.display();
+  }
+  delay(250);
 }
