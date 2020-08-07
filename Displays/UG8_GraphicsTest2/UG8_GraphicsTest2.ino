@@ -23,17 +23,21 @@ void setup() {
 
 void loop() {
   u8x8.clear();
+  u8x8.setFont(u8x8_font_inb33_3x6_n);
   for (int i = 0; i < 100; i++ )
   {
-    u8x8.setCursor(0, 2);
+    u8x8.setCursor(0, 0);
     u8x8.print(i);			// Arduino Print function
     delay(10);
   }
   delay(3000);
   for (int i = 0; i < 100; i++ )
   {
-    u8x8.drawString(0, 2, u8x8_u16toa(i, 5));	// U8g2 Build-In functions
+    u8x8.drawString(0, 0, u8x8_u16toa(i, 4));	// U8g2 Build-In functions
     delay(10);
   }
+  delay(3000);
+  u8x8.clear();
+  u8x8.drawCircle(20, 20, 14);
   delay(3000);
 }
