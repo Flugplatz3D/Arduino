@@ -1,7 +1,7 @@
 #include <FiniteStateMachine.h>
 //http://playground.arduino.cc/Code/FiniteStateMachine
 
-#define LED PB1
+#define LED PC13 //PB1
 #define button1Pin PA8
 #define button2Pin PB14
 #define button3Pin PB12
@@ -52,17 +52,17 @@ void chocarUpdate() {
   stateMachine.transitionTo(parar);
 }
 void pararEnter() {
-  //  digitalWrite(LED, HIGH );
+  digitalWrite(LED, HIGH );
   Serial.println(__FUNCTION__);
   delay(2000);
-  //  digitalWrite(LED, LOW );
+  digitalWrite(LED, LOW );
 }
 
 void pararUpdate() {
   Serial.print(millis());
   Serial.print(" - ");
   Serial.println(__FUNCTION__);
-  delay(25);
+  delay(50);
   digitalWrite(LED, !digitalRead(LED));
   if (millis() - parcial > 8000)
   {
