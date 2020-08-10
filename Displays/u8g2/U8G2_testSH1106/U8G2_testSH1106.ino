@@ -11,7 +11,8 @@ void setup() {
   u8g2.begin();
   //u8g2.setFont(u8g2_font_6x13_tf);
   //u8g2.setFont(u8g2_font_bauhaus2015_tr);
-  // u8g2.setFont(u8g2_font_BBSesque_tf);
+  u8g2.setFont(u8g2_font_HelvetiPixel_tr); //59972
+  //u8g2.setFont(u8g2_font_BBSesque_tf);
   //u8g2.setFont(u8g2_font_finderskeepers_tf);
   //u8g2.setFont(u8g2_font_6x10_tf);
   //u8g2.setFont(u8g2_font_cu12_tr);
@@ -26,10 +27,9 @@ void setup() {
   //u8g2.setFont(u8g2_font_tooseornament_tf);
   //u8g2.setFont(u8g2_font_adventurer_tf);
   //u8g2.setFont(u8g2_font_fancypixels_tf);
-  // u8g2.setFont(u8g2_font_lastapprenticebold_tr);
-  // u8g2.setFont(u8g2_font_ImpactBits_tr);
-  // u8g2.setFont(u8g2_font_IPAandRUSLCD_tf);
-  u8g2.setFont(u8g2_font_HelvetiPixel_tr); //59972
+  //u8g2.setFont(u8g2_font_lastapprenticebold_tr);
+  //u8g2.setFont(u8g2_font_ImpactBits_tr);
+  //u8g2.setFont(u8g2_font_IPAandRUSLCD_tf);
   u8g2.setFontRefHeightExtendedText();
   u8g2.setDrawColor(1);
   u8g2.setFontPosTop();
@@ -40,7 +40,7 @@ void loop() {
   u8g2.clearBuffer();
   u8g2.drawStr(0, 0, "U8g2lib SH1106");
   u8g2.setCursor(0, 20);
-  u8g2.print(i);
+  u8g2.print(i,DEC);
   //u8g2.print(millis());
   u8g2.sendBuffer();
   i++;
