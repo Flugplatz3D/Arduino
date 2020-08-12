@@ -5,13 +5,14 @@
 U8G2_SH1106_128X64_NONAME_F_HW_I2C u8g2(U8G2_R0, /* reset=*/ U8X8_PIN_NONE);
 //U8G2_SSD1306_128X64_NONAME_F_HW_I2C u8g2(U8G2_R0, /* reset=*/ U8X8_PIN_NONE);
 
-int i = 0;
+unsigned long i = 0;
 
 void setup() {
+  //Serial.begin(9600);
   u8g2.begin();
   //u8g2.setFont(u8g2_font_6x13_tf);
   //u8g2.setFont(u8g2_font_bauhaus2015_tr);
-  u8g2.setFont(u8g2_font_HelvetiPixel_tr); //59972
+  //u8g2.setFont(u8g2_font_HelvetiPixel_tr); //59972
   //u8g2.setFont(u8g2_font_BBSesque_tf);
   //u8g2.setFont(u8g2_font_finderskeepers_tf);
   //u8g2.setFont(u8g2_font_6x10_tf);
@@ -38,11 +39,15 @@ void setup() {
 
 void loop() {
   u8g2.clearBuffer();
-  u8g2.drawStr(0, 0, "U8g2lib SH1106");
-  u8g2.setCursor(0, 20);
+  u8g2.setFont(u8g2_font_bauhaus2015_tr);
+  u8g2.drawStr(0, 0, "Hola Mundo!!!");
+  u8g2.setFont(u8g2_font_HelvetiPixel_tr);
+  u8g2.drawStr(0, 30, "U8g2lib SH1106");
+  u8g2.setCursor(0, 44);
   u8g2.print(i,DEC);
   //u8g2.print(millis());
   u8g2.sendBuffer();
   i++;
-  delay(25);
+  //Serial.println(i);
+  //delay(5);
 }
