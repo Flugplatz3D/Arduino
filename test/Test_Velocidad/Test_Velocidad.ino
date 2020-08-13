@@ -1,6 +1,6 @@
 #define LED 13
 #define Externo 10
-#define Interno 1000000
+#define Interno 50000000
 unsigned long parcial = 0;
 float resultado = 0;
 
@@ -19,6 +19,7 @@ void loop() {
   Serial.println(parcial);
   for (unsigned long i = 1; i <= Externo; i++)
   {
+    resultado = 0;
     for (unsigned long j = 1; j <= Interno; j++)
     {
       resultado = (j * 0.25) / 8;
