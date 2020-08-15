@@ -35,9 +35,10 @@ void setup() {
   //u8g2.setFont(u8g2_font_lastapprenticebold_tr);
   //u8g2.setFont(u8g2_font_ImpactBits_tr);
   //u8g2.setFont(u8g2_font_IPAandRUSLCD_tf);
-  u8g2.drawStr(0, 0, "NUCLEO-32");
-  u8g2.drawStr(0, 16, "STM32F303K8");
-  u8g2.drawStr(0, 32, "Test U8g2lib SH1106");
+//  u8g2.drawStr(0, 0, "NUCLEO-32");
+//  u8g2.drawStr(0, 16, "STM32F303K8");
+//  u8g2.drawStr(0, 32, "Test U8g2lib SH1106");
+  u8g2.drawStr(0, 0, "Test U8g2lib SH1106");
   u8g2.setFont(u8g2_font_HelvetiPixel_tr);
   u8g2.sendBuffer();
   delay(3000);
@@ -50,7 +51,7 @@ void loop() {
   //u8g2.drawCircle(i, 54, 4);
   u8g2.drawDisc(i, 54, 8);
   u8g2.sendBuffer();
-  i++;
-  //  i = i + 4;
+  //  i++;
+  i = i + 2;
   if (i > 138) i = -10;
 }
