@@ -10,8 +10,8 @@ unsigned long time2 = 0;
 String inString = "";
 unsigned long timeFlash = 0;
 
-#define LED PB1
-//#define LED PC13
+//#define LED PB1
+#define LED 13
 
 void setup() {
   Serial.begin(9600);
