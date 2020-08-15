@@ -5,10 +5,9 @@
 U8G2_SH1106_128X64_NONAME_F_HW_I2C u8g2(U8G2_R0, /* reset=*/ U8X8_PIN_NONE);
 //U8G2_SSD1306_128X64_NONAME_F_HW_I2C u8g2(U8G2_R0, /* reset=*/ U8X8_PIN_NONE);
 
-unsigned long i = 0;
+int i = -5;
 
 void setup() {
-  //Serial.begin(9600);
   u8g2.begin();
   u8g2.setFontRefHeightExtendedText();
   u8g2.setDrawColor(1);
@@ -38,6 +37,7 @@ void setup() {
   //u8g2.setFont(u8g2_font_IPAandRUSLCD_tf);
   u8g2.drawStr(0, 0, "NUCLEO-32");
   u8g2.drawStr(0, 16, "STM32F303K8");
+  u8g2.drawStr(0, 32, "Test U8g2lib SH1106");
   u8g2.setFont(u8g2_font_HelvetiPixel_tr);
   u8g2.sendBuffer();
   delay(3000);
@@ -45,14 +45,12 @@ void setup() {
 
 void loop() {
   u8g2.clearBuffer();
-  u8g2.drawStr(0, 0, "Test U8g2lib SH1106");
-  u8g2.setCursor(0, 15);
-  //u8g2.print(i, DEC);
-  u8g2.print(millis(),DEC);
-  u8g2.drawCircle(10, 18 + 30, 9);
-  //u8g2.drawCircle(24 + a, 16 + 30, 7);
+  u8g2.setCursor(0, 0);
+  u8g2.print(millis(), DEC);
+  //u8g2.drawCircle(i, 54, 4);
+  u8g2.drawDisc(i, 54, 8);
   u8g2.sendBuffer();
   i++;
-  //Serial.println(i);
-  //delay(5);
+  //  i = i + 4;
+  if (i > 138) i = -10;
 }
