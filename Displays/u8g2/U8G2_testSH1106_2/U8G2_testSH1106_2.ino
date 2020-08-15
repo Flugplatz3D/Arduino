@@ -47,8 +47,10 @@ void loop() {
   u8g2.clearBuffer();
   u8g2.drawStr(0, 0, "Test U8g2lib SH1106");
   u8g2.setCursor(0, 15);
-  u8g2.print(i, DEC);
-  //u8g2.print(millis());
+  //u8g2.print(i, DEC);
+  u8g2.print(millis(),DEC);
+  u8g2.drawCircle(10, 18 + 30, 9);
+  //u8g2.drawCircle(24 + a, 16 + 30, 7);
   u8g2.sendBuffer();
   i++;
   //Serial.println(i);
