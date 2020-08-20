@@ -1,6 +1,5 @@
-#define LED 13
-
-#define Interno 500000
+#define LED PC13
+#define ExtLoop 250000
 #define Base 12
 
 //12x500000
@@ -18,27 +17,26 @@
 //BluePill STM32F103C8T6 - 9505s 72Mhz(-O1) 27140
 //BluePill STM32F103C8T6 - 10089s 72Mhz(-O2) 26596
 
-unsigned long parcial = 0;
+unsigned long partial = 0;
 float Factorial;
-String inString = "";
 
 void setup() {
   Serial.begin(9600);
   pinMode(LED, OUTPUT);
   digitalWrite(LED, LOW);
-  Serial.println("\n\nInicio");
-  delay(1000);
+  delay(2000);
+  Serial.println("\n\nStart");
+  delay(2000);
 }
 
 void loop() {
   digitalWrite(LED, LOW);
-  parcial = millis();
-  Serial.print("\nCalculando ");
-  Serial.print(Interno);
-  Serial.print(" veces el factorial de ");
+  partial = millis();
+  Serial.print("\nCalculating ");
+  Serial.print(ExtLoop);
+  Serial.print(" times Factorial of ");
   Serial.println(Base);
-  inString = "";
-  for (unsigned long j = 1; j <= Interno; j++)
+  for (unsigned long j = 1; j <= ExtLoop; j++)
   {
     Factorial = 1;
     for (int i = Base; i > 0; i--)
@@ -46,12 +44,9 @@ void loop() {
       Factorial = Factorial * (float)i;
     }
   }
-  //Factorial = Factorial / 10000; //por el ovf de println
-  //inString += Factorial;
-  //Serial.println(inString);
   Serial.println(Factorial);
   digitalWrite(LED, HIGH);
-  Serial.print("Milisegundos -> ");
-  Serial.println(millis() - parcial);
+  Serial.print("Milliseconds -> ");
+  Serial.println(millis() - partial);
   delay(2000);
 }
