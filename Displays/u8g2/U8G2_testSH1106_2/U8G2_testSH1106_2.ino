@@ -33,8 +33,8 @@ void loop() {
   u8g2.drawCircle(i, 40, 14);
   //  u8g2.drawDisc(i, 40, 16);
   u8g2.sendBuffer();
-  //  i++;
-  i = i + 2;
+  i++;
+  //  i = i + 2;
   if (i > 144) i = -16;
   //delay(250);
 }
