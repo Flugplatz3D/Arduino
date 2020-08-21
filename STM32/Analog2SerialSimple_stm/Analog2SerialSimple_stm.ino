@@ -13,7 +13,7 @@ void loop() {
   Serial.println(SensorValue, DEC);
   i++;
   digitalWrite(PC13, HIGH);   // set the LED on
-  delay(10);
-  digitalWrite(PC13, LOW);    // set the LED off
   delay(100);
+  digitalWrite(PC13, LOW);    // set the LED off
+  delay(10);
 }
