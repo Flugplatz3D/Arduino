@@ -24,7 +24,7 @@ int adc_key_in  = 0;
 // read the buttons
 int read_LCD_buttons()
 {
-  adc_key_in = analogRead(0);      // read the value from the sensor
+  adc_key_in = analogRead(A0);      // read the value from the sensor
   // my buttons when read are centered at these valies: 0, 144, 329, 504, 741
   // we add approx 50 to those values and check to see if we are close
   if (adc_key_in > 1000) return btnNONE; // We make this the 1st option for speed reasons since it will be the most likely result
