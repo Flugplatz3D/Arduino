@@ -1,4 +1,3 @@
-#include <Arduino.h>
 #include <U8g2lib.h>
 #include <Wire.h>
 
@@ -205,7 +204,7 @@ void loop() {
   frame ++;
   if (frame > 5) frame = 0;
   digitalWrite(LED, !digitalRead(LED));
-  delay(40);
+  //delay(40);
 }
 
 void draw()
