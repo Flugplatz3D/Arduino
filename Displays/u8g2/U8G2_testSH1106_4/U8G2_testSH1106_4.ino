@@ -34,7 +34,7 @@ static const unsigned char Transport_Car_Battery_icon48_bits[] PROGMEM = {
   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 };
 
-int i = -16;
+int i = -48;
 
 void setup() {
   u8g2.begin();
@@ -58,5 +58,5 @@ void loop() {
   u8g2.sendBuffer();
   //  i++;
   i = i + 2;
-  if (i > 144) i = -16;
+  if (i > 128) i = -48;
 }
