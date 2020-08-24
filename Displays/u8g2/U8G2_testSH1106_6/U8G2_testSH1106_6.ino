@@ -1,10 +1,11 @@
 #include <U8g2lib.h>
 #include <Wire.h>
 
-U8G2_SH1106_128X64_NONAME_F_HW_I2C u8g2(U8G2_R0, /* reset=*/ U8X8_PIN_NONE);
-//U8G2_SSD1306_128X64_NONAME_F_HW_I2C u8g2(U8G2_R0, /* reset=*/ U8X8_PIN_NONE);
+//U8G2_SH1106_128X64_NONAME_F_HW_I2C u8g2(U8G2_R0, /* reset=*/ U8X8_PIN_NONE);
+U8G2_SSD1306_128X64_NONAME_F_HW_I2C u8g2(U8G2_R0, /* reset=*/ U8X8_PIN_NONE);
 
-int frame = 0, c = 40, r = 12;
+int frame = 0, c = 38, r = 12, gap = 0;
+unsigned long parcial;
 #define LED 13
 
 #define image_01411_width 48
@@ -190,10 +191,12 @@ void setup() {
   u8g2.setFontDirection(0);
   u8g2.clearBuffer();
   u8g2.setFont(u8g2_font_BBSesque_tf);
-  u8g2.drawStr(0, 0, "U8g2lib SH1106");
+  //  u8g2.drawStr(0, 0, "U8g2lib SH1106");
+  u8g2.drawStr(0, 0, "U8g2lib SSD1306");
   u8g2.setFont(u8g2_font_HelvetiPixel_tr);
   u8g2.sendBuffer();
   delay(2000);
+  parcial = millis();
 }
 
 void loop() {
@@ -202,9 +205,14 @@ void loop() {
     draw();
   } while (u8g2.nextPage());
   frame ++;
-  if (frame > 5) frame = 0;
-  digitalWrite(LED, !digitalRead(LED));
-  //delay(40);
+  if (frame > 5)
+  {
+    frame = 0;
+    digitalWrite(LED, !digitalRead(LED));
+  }
+  gap = millis() - parcial;
+  parcial = millis();
+  delay(55);
 }
 
 void draw()
@@ -214,42 +222,42 @@ void draw()
     case 0:
       {
         u8g2.setCursor(0, 0);
-        u8g2.print(millis(), DEC);
+        u8g2.print(gap, DEC);
         u8g2.drawXBMP(c, r, image_01411_width, image_01411_height, image_01411_bits);
         break;
       }
     case 1:
       {
         u8g2.setCursor(0, 0);
-        u8g2.print(millis(), DEC);
+        u8g2.print(gap, DEC);
         u8g2.drawXBMP(c, r, image_01412_width, image_01412_height, image_01412_bits);
         break;
       }
     case 2:
       {
         u8g2.setCursor(0, 0);
-        u8g2.print(millis(), DEC);
+        u8g2.print(gap, DEC);
         u8g2.drawXBMP(c, r, image_01413_width, image_01413_height, image_01413_bits);
         break;
       }
     case 3:
       {
         u8g2.setCursor(0, 0);
-        u8g2.print(millis(), DEC);
+        u8g2.print(gap, DEC);
         u8g2.drawXBMP(c, r, image_01414_width, image_01414_height, image_01414_bits);
         break;
       }
     case 4:
       {
         u8g2.setCursor(0, 0);
-        u8g2.print(millis(), DEC);
+        u8g2.print(gap, DEC);
         u8g2.drawXBMP(c, r, image_01415_width, image_01415_height, image_01415_bits);
         break;
       }
     case 5:
       {
         u8g2.setCursor(0, 0);
-        u8g2.print(millis(), DEC);
+        u8g2.print(gap, DEC);
         u8g2.drawXBMP(c, r, image_01416_width, image_01416_height, image_01416_bits);
         break;
       }
