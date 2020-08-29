@@ -1,12 +1,13 @@
 #include <U8g2lib.h>
 #include <Wire.h>
 
-//U8G2_SH1106_128X64_NONAME_F_HW_I2C u8g2(U8G2_R0, /* reset=*/ U8X8_PIN_NONE);
-U8G2_SSD1306_128X64_NONAME_F_HW_I2C u8g2(U8G2_R0, /* reset=*/ U8X8_PIN_NONE);
+U8G2_SH1106_128X64_NONAME_F_HW_I2C u8g2(U8G2_R0, /* reset=*/ U8X8_PIN_NONE);
+//U8G2_SSD1306_128X64_NONAME_F_HW_I2C u8g2(U8G2_R0, /* reset=*/ U8X8_PIN_NONE);
 
 int frame = 0, c = 38, r = 12, gap = 0;
 unsigned long parcial;
-#define LED 13
+//#define LED 13
+#define LED PB1
 
 #define image_01411_width 48
 #define image_01411_height 48
@@ -191,8 +192,8 @@ void setup() {
   u8g2.setFontDirection(0);
   u8g2.clearBuffer();
   u8g2.setFont(u8g2_font_BBSesque_tf);
-  //  u8g2.drawStr(0, 0, "U8g2lib SH1106");
-  u8g2.drawStr(0, 0, "U8g2lib SSD1306");
+  u8g2.drawStr(0, 0, "U8g2lib SH1106");
+  //  u8g2.drawStr(0, 0, "U8g2lib SSD1306");
   u8g2.setFont(u8g2_font_HelvetiPixel_tr);
   u8g2.sendBuffer();
   delay(2000);
