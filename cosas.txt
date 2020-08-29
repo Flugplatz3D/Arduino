@@ -7,3 +7,8 @@ https://mcudude.github.io/MiniCore/package_MCUdude_MiniCore_index.json
 https://raw.githubusercontent.com/carlosefr/atmega/master/package_carlosefr_atmega_index.json
 
 https://raw.githubusercontent.com/damellis/attiny/ide-1.6.x-boards-manager/package_damellis_attiny_index.json
+
+https://mcudude.github.io/MiniCore/package_MCUdude_MiniCore_index.json
+https://raw.githubusercontent.com/sparkfun/Arduino_Boards/master/IDE_Board_Manager/package_sparkfun_index.json
+https://github.com/esp8266/Arduino/releases/download/2.7.1/package_esp8266com_index.json
+https://github.com/stm32duino/BoardManagerFiles/raw/master/STM32/package_stm_index.json
