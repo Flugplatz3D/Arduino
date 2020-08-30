@@ -1,9 +1,9 @@
-#define LED PC13
+#define LED 17
 #define ExtLoop 500000
 #define Base 12
 
 //12x500000
-//Nucleo-64 STM32F103RB - 10670ms
+//Nucleo-64 STM32F103RB - 10670m
 //Nano 328p - 78719ms
 //Maple Mini STM32F103RCBT6 - 10077ms 72Mhz(Smallest) 25196
 //Maple Mini STM32F103RCBT6 - 9421ms 72Mhz(-O2) 26532
@@ -16,6 +16,7 @@
 //BluePill STM32F103C8T6 - 9256s 72Mhz(Smallest) 25252
 //BluePill STM32F103C8T6 - 9505s 72Mhz(-O1) 27140
 //BluePill STM32F103C8T6 - 10089s 72Mhz(-O2) 26596
+//Teensy 3.0 - 14220ms 16560 96Mhz
 
 unsigned long partial = 0;
 float Factorial;
