@@ -1,4 +1,4 @@
-#define LED 17
+#define LED 13
 #define intPin 1
 
 int i = 0, j = 0;

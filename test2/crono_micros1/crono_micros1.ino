@@ -1,5 +1,5 @@
 #define LED 17
-#define buttonPin 1
+#define buttonPin 2
 
 int buttonState = 0;
 

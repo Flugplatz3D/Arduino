@@ -1,5 +1,5 @@
-#define LED 17
-#define intPin 1
+#define LED 13
+#define intPin 2
 
 int i = 0, j = 0;
 unsigned long time1 = 0;
