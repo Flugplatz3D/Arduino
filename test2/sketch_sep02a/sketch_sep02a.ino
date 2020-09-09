@@ -1,5 +1,5 @@
 //#define LED PB1
-#define LED 13
+#define LED 17
 unsigned long segundo = 0;
 unsigned long minuto = 0;
 unsigned long hora = 0;
