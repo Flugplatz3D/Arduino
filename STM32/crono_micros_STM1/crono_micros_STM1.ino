@@ -1,10 +1,11 @@
-#define LED PC13
-#define intPin PA0
+//#define LED PC13
+#define LED PB1
+#define intPin PA7
 
 int i = 0, j = 0;
 unsigned long time1 = 0;
 unsigned long time2 = 0;
-char output[25];
+char output[50];
 
 void intSR()
 {
@@ -15,8 +16,8 @@ void intSR()
 void setup() {
   Serial.begin(9600);
   pinMode(LED, OUTPUT);
-  //  attachInterrupt(digitalPinToInterrupt(intPin), intSR, RISING);
-  attachInterrupt(digitalPinToInterrupt(intPin), intSR, FALLING);
+  attachInterrupt(digitalPinToInterrupt(intPin), intSR, RISING);
+  //  attachInterrupt(digitalPinToInterrupt(intPin), intSR, FALLING);
   //  attachInterrupt(digitalPinToInterrupt(intPin), intSR, CHANGE);
 }
 
