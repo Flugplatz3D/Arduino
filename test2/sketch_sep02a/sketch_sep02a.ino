@@ -1,14 +1,14 @@
-//#define LED PB1
+#define LED PB1
 //#define LED 17
 //#define LED 13
-#define LED PC13
+//#define LED PC13
 unsigned long segundo = 0;
 unsigned long minuto = 0;
 unsigned long hora = 0;
 unsigned long segundot = 0;
 unsigned long minutot = 0;
 unsigned long time1 = 0;
-char output[15];
+char output[30];
 
 void setup() {
   Serial.begin(9600);
