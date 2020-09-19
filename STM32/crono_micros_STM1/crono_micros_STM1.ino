@@ -1,6 +1,6 @@
 //#define LED PC13
 #define LED PB1
-#define intPin PB0 //PA0-PA8
+#define intPin PB3 //PA0-PA8 PB0 PB12 PB13 PA15
 
 int i = 0, j = 0;
 unsigned long time1 = 0;
