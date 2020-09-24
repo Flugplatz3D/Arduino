@@ -19,7 +19,7 @@ void intSR()
   }
   else
   {
-    if (i < 100) i++;
+    if (i < 255) i++;
     digitalWrite(LED, LOW);
   }
   time1 = millis();
