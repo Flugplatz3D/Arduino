@@ -16,8 +16,8 @@ void intSR()
 void setup() {
   Serial.begin(9600);
   pinMode(LED, OUTPUT);
-  //  attachInterrupt(digitalPinToInterrupt(intPin), intSR, RISING);
-  attachInterrupt(digitalPinToInterrupt(intPin), intSR, FALLING);
+  attachInterrupt(digitalPinToInterrupt(intPin), intSR, RISING);
+  //  attachInterrupt(digitalPinToInterrupt(intPin), intSR, FALLING);
   //  attachInterrupt(digitalPinToInterrupt(intPin), intSR, CHANGE);
 }
 
