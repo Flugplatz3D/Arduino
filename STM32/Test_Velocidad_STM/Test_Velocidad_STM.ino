@@ -1,6 +1,6 @@
-//#define LED PC13
+#define LED PC13
 //#define LED PB1
-#define LED 13
+//#define LED 13
 #define ExtLoop 500000
 #define Base 12
 
