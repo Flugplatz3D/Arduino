@@ -5,8 +5,6 @@ unsigned long minuto = 0;
 unsigned long hora = 0;
 unsigned long segundot = 0;
 unsigned long minutot = 0;
-unsigned long time1 = 0;
-unsigned long time2 = 0;
 char output[12];
 String inString = "";
 SoftwareSerial mySerial(2, 3); // RX, TX
@@ -40,7 +38,6 @@ void setup() {
 
 void loop() {
   inString = "";
-  time2 = millis();
   segundo = millis() / 1000;
   minuto = segundo / 60;
   hora = minuto / 60;
