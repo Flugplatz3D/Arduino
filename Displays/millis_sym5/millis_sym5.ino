@@ -24,7 +24,7 @@ void setup() {
   Comando(4);
   Comando(12);
   Comando(134); //luz_on
-  Comando(131); //cursor_on
+  Comando(131); //cursor_off
   Cursor(1, 1);
   Serial.print("  Arduino");
   Cursor(2, 1);
