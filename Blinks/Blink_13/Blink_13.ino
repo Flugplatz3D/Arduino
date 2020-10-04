@@ -4,5 +4,5 @@ void setup() {
   pinMode(LED, OUTPUT);
 }
 void loop() {
-  digitalWrite(LED, bitRead(millis(), 8));
+  digitalWrite(LED, bitRead(millis(), 7));
 }
