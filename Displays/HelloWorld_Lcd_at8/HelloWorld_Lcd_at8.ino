@@ -33,9 +33,7 @@ void loop() {
   sprintf(output, "%02d:%02d:%02d", (int)hora, (int)minutot, (int)segundot);
   lcd.setCursor(0, 0);
   lcd.print(output);
-  lcd.setCursor(0, 1);
+  lcd.setCursor(0, 1);  
   lcd.print(time1);
-  //  delay(50);
-  //  digitalWrite(LED, !digitalRead(LED));
-  digitalWrite(LED, bitRead(millis(), 13));
+  digitalWrite(LED, bitRead(millis(), 8));
 }

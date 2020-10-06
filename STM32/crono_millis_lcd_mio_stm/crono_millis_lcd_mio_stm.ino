@@ -1,6 +1,6 @@
 #include <SoftwareSerial.h>
 
-SoftwareSerial mySerial(PC13, PC14); // RX, TX
+SoftwareSerial mySerial(PA0, PA1); // RX, TX
 unsigned long segundo = 0;
 unsigned long minuto = 0;
 unsigned long hora = 0;
@@ -19,6 +19,7 @@ void setup()
   digitalWrite(LedPlaca, HIGH);
   mySerial.begin(9600);
   BorraP();
+  delay(500);
   Comando(134); //Luz ON
   mySerial.print("Hola Mundo");
   delay(3000);
@@ -33,9 +34,9 @@ void loop()
   hora = minuto / 60;
   minutot = minuto - (hora * 60);
   segundot = segundo - (minuto * 60);
-  Cursor(0, 0);
-  mySerial.print(time1);
   Cursor(1, 0);
+  mySerial.print(time1);
+  Cursor(2, 0);
   sprintf(output, "%02d:%02d:%02d", (int)hora, (int)minutot, (int)segundot);
   mySerial.print(output);
 //  delay(500);
