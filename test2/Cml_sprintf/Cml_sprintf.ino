@@ -24,6 +24,6 @@ void loop() {
   segundot = segundo - (minuto * 60);
   sprintf(output, "%02d:%02d:%02d - %lu", (int)hora, (int)minutot, (int)segundot, time1);
   Serial.println(output);
-  delay(500);
+  delay(250);
   digitalWrite(LED, !digitalRead(LED));
 }

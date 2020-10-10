@@ -9,7 +9,7 @@ unsigned long minutot = 0;
 unsigned long time1 = 0;
 char output[12];
 #define LedPlaca PC13
-#define LedPlaca PB1
+//#define LedPlaca PB1
 
 void setup()
 {
