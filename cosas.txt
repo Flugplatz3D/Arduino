@@ -18,3 +18,5 @@ https://github.com/esp8266/Arduino/releases/download/2.7.1/package_esp8266com_in
 
 https://github.com/stm32duino/BoardManagerFiles/raw/master/STM32/package_stm_index.json
 
+https://raw.githubusercontent.com/dbuezas/lgt8fx/master/package_lgt8fx_index.json
+
