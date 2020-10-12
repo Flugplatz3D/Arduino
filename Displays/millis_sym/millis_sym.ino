@@ -59,23 +59,23 @@ void loop() {
   Cursor(1,1);
   Serial.println(inString);
   //Serial.println(millis()/1000, DEC);
-  an1 = analogRead(1);
-  an1 = an1 / 4;
-  Cursor(3,1);
-  Serial.print(an1, DEC);
-  Serial.println("  ");
-  analogWrite(9, an1);
-  Cursor(2,1);
-  Serial.print(SensorValue);
-  Serial.println("V");
-  if (an1 > 128)
-  {
-    Comando(134); //luz_on
-  }
-  else
-  {
-    Comando(135); //luz_off
-  }
+//  an1 = analogRead(1);
+//  an1 = an1 / 4;
+//  Cursor(3,1);
+//  Serial.print(an1, DEC);
+//  Serial.println("  ");
+//  analogWrite(9, an1);
+//  Cursor(2,1);
+//  Serial.print(SensorValue);
+//  Serial.println("V");
+//  if (an1 > 128)
+//  {
+//    Comando(134); //luz_on
+//  }
+//  else
+//  {
+//    Comando(135); //luz_off
+//  }
 }
 
 void BorraP(){
@@ -91,6 +91,3 @@ void Cursor(byte fila, byte columna){
   Serial.write(fila);
   Serial.write(columna);
 }
-
-
-
