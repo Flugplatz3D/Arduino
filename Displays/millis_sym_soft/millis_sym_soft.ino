@@ -6,7 +6,8 @@ unsigned long hora = 0;
 unsigned long segundot = 0;
 unsigned long minutot = 0;
 char output[16];
-SoftwareSerial mySerial(2, 3); // RX, TX
+//SoftwareSerial mySerial(2, 3); // RX, TX
+SoftwareSerial mySerial(PA0, PA1); // RX, TX
 //SoftwareSerial mySerial(PA0, PA1); // RX, TX
 
 void setup() {
