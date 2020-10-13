@@ -13,6 +13,7 @@ char output[12];
 
 void setup()
 {
+  Serial.begin(9600);
   pinMode(LedPlaca, OUTPUT);
   digitalWrite(LedPlaca, LOW);
   delay(2000);
@@ -41,6 +42,7 @@ void loop()
   mySerial.print(output);
 //  delay(500);
   digitalWrite(LedPlaca, !digitalRead(LedPlaca));
+  Serial.println(time1);
 }
 
 void BorraP() {
