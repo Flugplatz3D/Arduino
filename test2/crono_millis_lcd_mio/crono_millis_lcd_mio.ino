@@ -8,13 +8,17 @@ unsigned long segundot = 0;
 unsigned long minutot = 0;
 unsigned long time1 = 0;
 char output[12];
+#define LedPlaca 17
 
 void setup()
 {
+  pinMode(LedPlaca, OUTPUT);
+  digitalWrite(LedPlaca, LOW);
   delay(2000);
-  mySerial.begin(9600);
+  digitalWrite(LedPlaca, HIGH);
+  mySerial.begin(9600); 
   BorraP();
-  Comando(134); //Luz ON
+  Comando(134); //Luz ON 
   mySerial.print("Hola Mundo");
   delay(3000);
   BorraP();
@@ -33,7 +37,8 @@ void loop()
   Cursor(2, 0);
   sprintf(output, "%02d:%02d:%02d", (int)hora, (int)minutot, (int)segundot);
   mySerial.print(output);
-//  delay(100);
+  //  delay(100);
+  //digitalWrite(LedPlaca, !digitalRead(LedPlaca));
 }
 
 void BorraP() {
