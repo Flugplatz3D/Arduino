@@ -4,6 +4,7 @@
 
 //12x500000
 //Nucleo-64 STM32F103RB - 10670m
+//Nucleo-32 STM32L432KC - 544m
 //Nano 328p - 78719ms
 //Maple Mini STM32F103RCBT6 - 10077ms 72Mhz(Smallest) 25196
 //Maple Mini STM32F103RCBT6 - 9421ms 72Mhz(-O2) 26532
