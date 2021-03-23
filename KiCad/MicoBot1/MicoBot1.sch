@@ -161,17 +161,6 @@ F 3 "http://www.advanced-monolithic.com/pdf/ds1117.pdf" H 8700 4700 50  0001 C C
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector:Screw_Terminal_01x02 J2
-U 1 1 5CB7B471
-P 7300 4950
-F 0 "J2" H 7218 4625 50  0000 C CNN
-F 1 "Bat" H 7218 4716 50  0000 C CNN
-F 2 "TerminalBlock_Phoenix:TerminalBlock_Phoenix_PT-1,5-2-3.5-H_1x02_P3.50mm_Horizontal" H 7300 4950 50  0001 C CNN
-F 3 "~" H 7300 4950 50  0001 C CNN
-	1    7300 4950
-	-1   0    0    1   
-$EndComp
-$Comp
 L power:GND #PWR0101
 U 1 1 5CB7D70C
 P 8600 5450
@@ -334,10 +323,10 @@ Wire Wire Line
 Connection ~ 5550 2550
 Connection ~ 5350 2550
 $Comp
-L Connector:Screw_Terminal_01x02 J3
+L Connector:Screw_Terminal_01x02 M2
 U 1 1 5D447C03
 P 8800 2100
-F 0 "J3" H 8718 1775 50  0000 C CNN
+F 0 "M2" H 8718 1775 50  0000 C CNN
 F 1 "Motor2" H 8718 1866 50  0000 C CNN
 F 2 "TerminalBlock_Phoenix:TerminalBlock_Phoenix_PT-1,5-2-3.5-H_1x02_P3.50mm_Horizontal" H 8800 2100 50  0001 C CNN
 F 3 "~" H 8800 2100 50  0001 C CNN
@@ -345,10 +334,10 @@ F 3 "~" H 8800 2100 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector:Screw_Terminal_01x02 J4
+L Connector:Screw_Terminal_01x02 M1
 U 1 1 5D4495C2
 P 8800 2700
-F 0 "J4" H 8718 2375 50  0000 C CNN
+F 0 "M1" H 8718 2375 50  0000 C CNN
 F 1 "Motor1" H 8718 2466 50  0000 C CNN
 F 2 "TerminalBlock_Phoenix:TerminalBlock_Phoenix_PT-1,5-2-3.5-H_1x02_P3.50mm_Horizontal" H 8800 2700 50  0001 C CNN
 F 3 "~" H 8800 2700 50  0001 C CNN
@@ -665,10 +654,10 @@ Wire Wire Line
 Wire Wire Line
 	4000 5150 4000 5250
 $Comp
-L Connector:Conn_01x06_Male J1
+L Connector:Conn_01x06_Male Vcc1
 U 1 1 5D566BB2
 P 3600 5450
-F 0 "J1" H 3572 5424 50  0000 R CNN
+F 0 "Vcc1" H 3572 5424 50  0000 R CNN
 F 1 "+5v" H 3572 5333 50  0000 R CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical" H 3600 5450 50  0001 C CNN
 F 3 "~" H 3600 5450 50  0001 C CNN
@@ -676,10 +665,10 @@ F 3 "~" H 3600 5450 50  0001 C CNN
 	-1   0    0    -1  
 $EndComp
 $Comp
-L Connector:Conn_01x06_Male J5
+L Connector:Conn_01x06_Male Gnd1
 U 1 1 5D5683CC
 P 4400 5150
-F 0 "J5" H 4372 5124 50  0000 R CNN
+F 0 "Gnd1" H 4372 5124 50  0000 R CNN
 F 1 "GND" H 4372 5033 50  0000 R CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical" H 4400 5150 50  0001 C CNN
 F 3 "~" H 4400 5150 50  0001 C CNN
@@ -754,4 +743,52 @@ Wire Wire Line
 	5100 4900 5100 4400
 Wire Wire Line
 	5100 4400 5350 4400
+$Comp
+L Device:C C5
+U 1 1 6058D708
+P 2450 3950
+F 0 "C5" H 2565 3996 50  0000 L CNN
+F 1 "100n" H 2565 3905 50  0000 L CNN
+F 2 "Capacitor_SMD:C_1206_3216Metric" H 2488 3800 50  0001 C CNN
+F 3 "~" H 2450 3950 50  0001 C CNN
+	1    2450 3950
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR016
+U 1 1 6058F85D
+P 2450 4200
+F 0 "#PWR016" H 2450 3950 50  0001 C CNN
+F 1 "GND" H 2455 4027 50  0000 C CNN
+F 2 "" H 2450 4200 50  0001 C CNN
+F 3 "" H 2450 4200 50  0001 C CNN
+	1    2450 4200
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:VCC #PWR015
+U 1 1 60590959
+P 2450 3650
+F 0 "#PWR015" H 2450 3500 50  0001 C CNN
+F 1 "VCC" H 2465 3823 50  0000 C CNN
+F 2 "" H 2450 3650 50  0001 C CNN
+F 3 "" H 2450 3650 50  0001 C CNN
+	1    2450 3650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2450 3800 2450 3650
+Wire Wire Line
+	2450 4200 2450 4100
+$Comp
+L Connector:Screw_Terminal_01x02 J2
+U 1 1 5CB7B471
+P 7300 4950
+F 0 "J2" H 7218 4625 50  0000 C CNN
+F 1 "Bat" H 7218 4716 50  0000 C CNN
+F 2 "TerminalBlock_Phoenix:TerminalBlock_Phoenix_PT-1,5-2-3.5-H_1x02_P3.50mm_Horizontal" H 7300 4950 50  0001 C CNN
+F 3 "~" H 7300 4950 50  0001 C CNN
+	1    7300 4950
+	-1   0    0    1   
+$EndComp
 $EndSCHEMATC
