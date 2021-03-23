@@ -5,9 +5,9 @@
     {
       "Vendor":      "KiCad",
       "Application": "Pcbnew",
-      "Version":     "(5.1.4)-1"
+      "Version":     "(5.1.8)-1"
     },
-    "CreationDate":  "2019-09-25T21:42:56+02:00"
+    "CreationDate":  "2021-03-23T12:39:28+01:00"
   },
   "GeneralSpecs":
   {
@@ -70,6 +70,11 @@
     {
       "Path":  "MicoBot1-Edge_Cuts.gm1",
       "FileFunction":  "Profile",
+      "FilePolarity":  "Positive"
+    },
+    {
+      "Path":  "MicoBot1-F_Fab.gbr",
+      "FileFunction":  "AssemblyDrawing,Top",
       "FilePolarity":  "Positive"
     }
   ],
